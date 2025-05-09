@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Pronunciation: The "TH" Sound</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px auto;
+      padding: 20px;
+      max-width: 700px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .example {
+      margin: 10px 0;
+      padding: 10px;
+      background: #fff;
+      border-left: 5px solid #4CAF50;
+    }
+    .audio-button {
+      margin-left: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>English Pronunciation: The "TH" Sound</h1>
+  <p>The "TH" sound in English is tricky for many Spanish speakers. It does not exist in Spanish, so it takes practice!</p>
+  <p>There are two types of "TH" sounds in English:</p>
+  <ul>
+    <li><strong>Voiceless TH</strong> like in <em>think, thin, both</em></li>
+    <li><strong>Voiced TH</strong> like in <em>this, that, mother</em></li>
+  </ul>
+
+  <h2>Examples and Practice</h2>
+
+  <div class="example">think <button class="audio-button" onclick="playSound('think001', 't')">▶️</button></div>
+  <div class="example">thin <button class="audio-button" onclick="playSound('thin0001', 't')">▶️</button></div>
+  <div class="example">both <button class="audio-button" onclick="playSound('both0001', 'b')">▶️</button></div>
+  <div class="example">this <button class="audio-button" onclick="playSound('this0001', 't')">▶️</button></div>
+  <div class="example">that <button class="audio-button" onclick="playSound('that0001', 't')">▶️</button></div>
+  <div class="example">mother <button class="audio-button" onclick="playSound('mother01', 'm')">▶️</button></div>
+
+  <script>
+    function playSound(filename, folder) {
+      const url = `https://media.merriam-webster.com/audio/prons/en/us/mp3/${folder}/${filename}.mp3`;
+      new Audio(url).play();
+    }
+  </script>
+</body>
+</html>

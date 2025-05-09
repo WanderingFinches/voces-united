@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animals Vocabulary - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+</head>
+<body id="animals">
+  <header>
+    <div class="logo-container">
+      <img src="../../assets/images/logo.jpg" alt="Voces United Logo">
+    </div>
+    <div class="titles">
+      <h1>Animals</h1>
+      <p>Vocabulary with Pictures</p>
+    </div>
+    <nav>
+      <ul class="navbar">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../vocabulary/index.html">Vocabulary</a></li>
+        <li><a href="../pronunciation/index.html">Pronunciation</a></li>
+        <li><a href="../grammar/index.html">Grammar</a></li>
+        <li><a href="../videos/index.html">Videos</a></li>
+        <li><a href="../activities/index.html">Activities</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Animal Vocabulary Cards</h2>
+    <div class="vocab-grid" id="animal-grid">
+      <!-- Animal cards will be inserted here dynamically -->
+    </div>
+  </section>
+
+  <section id="quiz">
+    <h2>Quiz: Identify the Animal</h2>
+    <div class="quiz-question">
+      <p>1. Which animal says "Meow"?</p>
+      <button onclick="selectAnswer(this, 'incorrect')">Dog</button>
+      <button onclick="selectAnswer(this, 'correct')">Cat</button>
+      <button onclick="selectAnswer(this, 'incorrect')">Cow</button>
+    </div>
+    <div class="quiz-question">
+      <p>2. Which one swims?</p>
+      <button onclick="selectAnswer(this, 'incorrect')">Horse</button>
+      <button onclick="selectAnswer(this, 'incorrect')">Bird</button>
+      <button onclick="selectAnswer(this, 'correct')">Fish</button>
+    </div>
+    <p id="quiz-result"></p>
+  </section>
+
+  <footer>
+    <p>Voces United © 2025 – Empowering through language</p>
+  </footer>
+
+  <script src="../../assets/js/quiz.js"></script>
+  <script>
+    const animals = [
+      { name: 'Dog', spanish: 'Perro', image: 'dog.jpg' },
+      { name: 'Cat', spanish: 'Gato', image: 'cat.jpg' },
+      { name: 'Bird', spanish: 'Pájaro', image: 'bird.jpg' },
+      { name: 'Cow', spanish: 'Vaca', image: 'cow.jpg' },
+      { name: 'Horse', spanish: 'Caballo', image: 'horse.jpg' },
+      { name: 'Fish', spanish: 'Pez', image: 'fish.jpg' },
+      { name: 'Elephant', spanish: 'Elefante', image: 'elephant.jpg' },
+      { name: 'Lion', spanish: 'León', image: 'lion.jpg' },
+      { name: 'Monkey', spanish: 'Mono', image: 'monkey.jpg' },
+      { name: 'Pig', spanish: 'Cerdo', image: 'pig.jpg' },
+      { name: 'Sheep', spanish: 'Oveja', image: 'sheep.jpg' },
+      { name: 'Duck', spanish: 'Pato', image: 'duck.jpg' }
+    ];
+
+    const grid = document.getElementById('animal-grid');
+
+    animals.forEach(animal => {
+      const card = document.createElement('div');
+      card.className = 'vocab-card';
+
+      card.innerHTML = `
+        <img src="../../assets/images/animals/${animal.image}" alt="${animal.name}" />
+        <p class="animal-label">${animal.name}</p>
+        <button class="toggle-btn">Español</button>
+      `;
+
+      const label = card.querySelector('.animal-label');
+      const toggleBtn = card.querySelector('.toggle-btn');
+
+      let showingEnglish = true;
+      card.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('toggle-btn')) {
+          const utterance = new SpeechSynthesisUtterance(label.textContent);
+          utterance.lang = showingEnglish ? 'en-US' : 'es-ES';
+          speechSynthesis.speak(utterance);
+        }
+      });
+
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showingEnglish = !showingEnglish;
+        label.textContent = showingEnglish ? animal.name : animal.spanish;
+        toggleBtn.textContent = showingEnglish ? 'Español' : 'English';
+      });
+
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

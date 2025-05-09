@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activities & Games - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+  <style>
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .activity-card {
+      background-color: white;
+      border: 2px solid #4CAF50;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+    .activity-card:hover {
+      transform: scale(1.03);
+    }
+    .activity-card a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: bold;
+      display: block;
+    }
+  </style>
+</head>
+<body id="activities">
+  <header>
+    <div class="logo-container">
+      <img src="../../assets/images/logo.jpg" alt="Voces United Logo">
+    </div>
+    <div class="titles">
+      <h1>Activities & Games</h1>
+      <p>Practice vocabulary in fun and interactive ways</p>
+    </div>
+    <nav>
+      <ul class="navbar">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../vocabulary/index.html">Vocabulary</a></li>
+        <li><a href="../pronunciation/index.html">Pronunciation</a></li>
+        <li><a href="../grammar/index.html">Grammar</a></li>
+        <li><a href="../videos/index.html">Videos</a></li>
+        <li><a href="index.html">Activities</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Choose a Game</h2>
+    <div class="activities-grid">
+      <div class="activity-card">
+        <a href="flashcards.html">🔁 Flashcards</a>
+        <p>Review vocabulary by flipping cards between picture and word.</p>
+      </div>
+      <div class="activity-card">
+        <a href="which-one-is-wrong.html">❌ Which One's Wrong?</a>
+        <p>Find the object that doesn’t belong in the group.</p>
+      </div>
+      <div class="activity-card">
+        <a href="drag-and-drop.html">🧩 Drag and Drop Match</a>
+        <p>Match animal names to their pictures.</p>
+      </div>
+      <div class="activity-card">
+        <a href="memory-match.html">🧠 Memory Match</a>
+        <p>Find matching pairs of images and words by flipping cards.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Voces United © 2025 – Learn by doing</p>
+  </footer>
+</body>
+</html>

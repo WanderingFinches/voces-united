@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>May 8 - Introduction</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="../assets/images/logo.jpg" alt="Voces United Logo">
+    </div>
+    <div class="titles">
+      <h1>May 8 - Introduction</h1>
+      <p>Class Notes</p>
+    </div>
+  </header>
+
+  <section id="vocabulary">
+    <img src="../assets/images/lesson1.png">
+    <h3>Today we learned basic English words and phrases.</h3>
+    <h2>Vocabulary List</h2>
+    <table>
+        <tr><th>English</th><th>Spanish</th></tr>
+        <tr><td>Hello / Hi</td><td>Hola</td></tr>
+        <tr><td>My name is ...</td><td>Mi nombre es...</td></tr>
+        <tr><td>Goodbye</td><td>Adios</td></tr>
+        <tr><td>Nice to meet you</td><td>Mucho gusto</td></tr>
+    </table>
+    </section>
+
+<section id="examples">
+    <img src="../assets/images/hello.png" onclick="playAudio('../assets/audio/mynameisjames.mp3')">
+    <img src="../assets/images/yourname.png" onclick="playAudio('../assets/audio/yourname.mp3')">
+    <img src="../assets/images/soydeloseeuu.png" onclick="playAudio('../assets/audio/fromusa.mp3')">
+</section>
+    
+    <h3>Practice Tip</h3>
+    <p>Record yourself saying the words out loud. Then describe your own yard using the new vocabulary!</p>
+
+    <h3>Homework</h3>
+    <ul>
+      <li>Review the <a href="../lessons/vocabulary/landscaping.html">Landscaping Vocabulary Page</a></li>
+      <li>Take the quiz at the bottom of the page</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Voces United © 2025</p>
+  </footer>
+
+  <script>
+    function playAudio(url) {
+  new Audio(url).play();
+}
+  </script>
+</body>
+</html>

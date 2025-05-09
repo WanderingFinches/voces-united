@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parts of Speech - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+  <style>
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px 0;
+    }
+    .lesson-card {
+      background-color: white;
+      border: 2px solid #4CAF50;
+      border-radius: 10px;
+      padding: 20px;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .lesson-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body id="partsofspeech">
+    <header>
+        <div class="logo-container">
+        <img src="../../assets/images/logo.jpg" alt="Voces United Logo">
+        </div>
+        <div class="titles">
+        <h1>Parts of Speech</h1>
+        <p>Grammar Lesson: Learn the 8 parts of speech in English</p>
+        </div>
+        <nav>
+        <ul class="navbar">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+            <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+            <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+            <li><a href="../../lessons/videos/index.html">Videos</a></li>
+            <li><a href="../../lessons/activities/index.html">Activities</a></li>
+        </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Parts of Speech</h2>
+      
+        <div class="video-container">
+            <iframe width="100%" height="400" 
+              src="../../assets/videos/PartsOfSpeech.mp4" 
+              title="Landscaping" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+        </div>
+
+        <a href="https://www.youtube.com/watch?v=FVCGAvRGnjo">YouTube Link to Video</a>
+    </section>
+
+    <section>
+        <h2>What are Parts of Speech?</h2>
+        <p>Parts of speech are the basic types of words we use to build sentences. Each word plays a role in a sentence.</p>
+    
+        <div class="lesson-grid">
+          <a class="lesson-card clickable" data-word="Noun" href="#noun">
+            <h3>Noun</h3>
+            <p>A person, place, or thing (e.g. teacher, school, dog)</p>
+          </a>
+          <a class="lesson-card clickable" data-word="Pronoun" href="#pronoun">
+            <h3>Pronoun</h3>
+            <p>A word that replaces a noun (e.g. he, she, they)</p>
+          </a>
+          <a class="lesson-card clickable" data-word="Verb" href="#verb">
+            <h3>Verb</h3>
+            <p>An action or state (e.g. run, eat, is)</p>
+          </a>
+          <a class="lesson-card clickable" data-word="Adjective" href="#adjective">
+            <h3>Adjective</h3>
+            <p>Describes a noun (e.g. happy, tall, green)</p>
+          </a>
+          <a class="lesson-card clickable" data-word="Adverb" href="#adverb">
+            <h3>Adverb</h3>
+            <p>Describes a verb or adjective (e.g. quickly, very)</p>
+          </a>
+          <a class="lesson-card clickable" data-word="Preposition" href="#preposition">
+            <h3>Preposition</h3>
+            <p>Shows location or time (e.g. in, on, before)</p>
+          </a>
+          <a class="lesson-card clickable" data-word="Conjunction" href="#conjunction">
+            <h3>Conjunction</h3>
+            <p>Connects words or ideas (e.g. and, but, or)</p>
+          </a>
+          <a class="lesson-card clickable" data-word="Interjection" href="#interjection">
+            <h3>Interjection</h3>
+            <p>A short exclamation (e.g. wow!, hey!, oh!)</p>
+          </a>
+        </div>
+    </section>
+
+    <section id="noun" class="grammar-section">
+        <h2>Noun</h2>
+        <img src="../../assets/images/icons/noun.png" alt="Noun Icon" class="icon-top-right">
+        <p><strong>A noun</strong> is a word that names a person, place, thing, or idea.</p>
+        <ul>
+          <li>Person: <em>teacher, doctor, Maria</em></li>
+          <li>Place: <em>school, park, New York</em></li>
+          <li>Thing: <em>book, car, phone</em></li>
+          <li>Idea: <em>happiness, freedom, love</em></li>
+        </ul>
+        <button class="speak-button" onclick="speak('The teacher works at a school.')">🔊 The teacher works at a school.</button>
+    </section>
+    <section id="pronoun" class="grammar-section">
+        <h2>Pronoun</h2>
+        <img src="../../assets/images/icons/pronoun.png" alt="Pronoun Icon" class="icon-top-right">
+        <p><strong>A pronoun</strong> replaces a noun to avoid repetition.</p>
+        <ul>
+          <li>Examples: <em>he, she, it, they, we, you</em></li>
+          <li>"Maria is a teacher. <u>She</u> teaches math."</li>
+        </ul>
+        <button class="speak-button" onclick="speak('She is my friend.')">🔊 She is my friend.</button>
+    </section>
+    <section id="verb" class="grammar-section">
+        <h2>Verb</h2>
+        <img src="../../assets/images/icons/verb.png" alt="Verb Icon" class="icon-top-right">
+        <p><strong>A verb</strong> expresses an action or a state of being.</p>
+        <ul>
+          <li>Action: <em>run, eat, write, build</em></li>
+          <li>State: <em>is, was, are, be</em></li>
+          <li>"He <u>runs</u> every morning."</li>
+        </ul>
+        <button class="speak-button" onclick="speak('She runs every morning.')">🔊 She runs every morning.</button>
+    </section>
+    <section id="adjective" class="grammar-section">
+        <h2>Adjective</h2>
+        <img src="../../assets/images/icons/adjective.png" alt="Adjective Icon" class="icon-top-right">
+        <p><strong>An adjective</strong> describes a noun.</p>
+        <ul>
+          <li>Examples: <em>happy, red, tall, delicious</em></li>
+          <li>"She wore a <u>blue</u> dress."</li>
+        </ul>
+        <button class="speak-button" onclick="speak('That is a tall tree.')">🔊 That is a tall tree.</button>
+    </section>
+    <section id="adverb" class="grammar-section">
+        <h2>Adverb</h2>
+        <img src="../../assets/images/icons/adverb.png" alt="Adverb Icon" class="icon-top-right">
+        <p><strong>An adverb</strong> describes a verb, adjective, or another adverb.</p>
+        <ul>
+          <li>Examples: <em>quickly, very, well, slowly</em></li>
+          <li>"He drives <u>slowly</u>."</li>
+        </ul>
+        <button class="speak-button" onclick="speak('She quickly finished the work.')">🔊 She quickly finished the work.</button>
+    </section>
+    <section id="preposition" class="grammar-section">
+        <h2>Preposition</h2>
+        <img src="../../assets/images/icons/preposition.png" alt="Preposition Icon" class="icon-top-right">
+        <p><strong>A preposition</strong> shows the relationship of a noun or pronoun to another word.</p>
+        <ul>
+          <li>Examples: <em>in, on, under, before, between</em></li>
+          <li>"The keys are <u>on</u> the table."</li>
+        </ul>
+        <button class="speak-button" onclick="speak('The book is on the table.')">🔊 The book is on the table.</button>
+    </section>
+    <section id="conjunction" class="grammar-section">
+        <h2>Conjunction</h2>
+        <img src="../../assets/images/icons/conjunction.png" alt="Conjunction Icon" class="icon-top-right">
+        <p><strong>A conjunction</strong> connects words, phrases, or clauses.</p>
+        <ul>
+          <li>Examples: <em>and, but, or, so, because</em></li>
+          <li>"She is smart <u>and</u> kind."</li>
+        </ul>
+        <button class="speak-button" onclick="speak('I want pizza and salad.')">🔊 I want pizza and salad.</button>
+    </section>
+    <section id="interjection" class="grammar-section">
+        <h2>Interjection</h2>
+        <img src="../../assets/images/icons/interjection.png" alt="Interjection Icon" class="icon-top-right">
+        <p><strong>An interjection</strong> is a short word or phrase that expresses emotion.</p>
+        <ul>
+          <li>Examples: <em>wow, oh, hey, ouch</em></li>
+          <li>"<u>Wow!</u> That was amazing!"</li>
+        </ul>
+        <button class="speak-button" onclick="speak('Wow! This is great.')">🔊 Wow! This is great.</button>
+    </section>
+
+    <section id="quiz" class="grammar-section">
+        <h2>Practice Quiz: Parts of Speech</h2>
+        <div id="quiz-container">
+            <div class="quiz-question">
+                <p><strong>1. Which word is a noun?</strong></p>
+                <button onclick="selectAnswer(this, 'correct')">Dog</button>
+                <button onclick="selectAnswer(this, 'incorrect')">Quickly</button>
+                <button onclick="selectAnswer(this, 'incorrect')">And</button>
+            </div>
+              
+            <div class="quiz-question">
+                <p><strong>2. What part of speech is \"she\"?</strong></p>
+                <button onclick="selectAnswer(this, 'correct')">Pronoun</button>
+                <button onclick="selectAnswer(this, 'incorrect')">Adjective</button>
+                <button onclick="selectAnswer(this, 'incorrect')">Preposition</button>
+            </div>
+              
+            <div class="quiz-question">
+                <p><strong>3. Which of these is a verb?</strong></p>
+                <button onclick="selectAnswer(this, 'incorrect')">Blue</button>
+                <button onclick="selectAnswer(this, 'correct')">Run</button>
+                <button onclick="selectAnswer(this, 'incorrect')">Wow</button>
+            </div>
+              
+            <div class="quiz-question">
+                <p><strong>4. What is the function of an adjective?</strong></p>
+                <button onclick="selectAnswer(this, 'correct')">Describe a noun</button>
+                <button onclick="selectAnswer(this, 'incorrect')">Replace a noun</button>
+                <button onclick="selectAnswer(this, 'incorrect')">Join words</button>
+            </div>
+              
+            <div class="quiz-question">
+                <p><strong>5. Which word is an interjection?</strong></p>
+                <button onclick="selectAnswer(this, 'correct')">Hey!</button>
+                <button onclick="selectAnswer(this, 'incorrect')">Table</button>
+                <button onclick="selectAnswer(this, 'incorrect')">Because</button>
+            </div>
+        </div>
+        <p id="quiz-result"></p>
+    </section>
+    
+    <footer>
+        <p>Voces United © 2025 – Empowering through language</p>
+    </footer>
+    
+    <script src="../../script.js"></script>
+    <script src="../../assets/js/quiz.js"></script>
+    <script>
+        document.querySelectorAll('.clickable').forEach(card => {
+          card.addEventListener('click', (e) => {
+            const word = card.dataset.word;
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'en-US';
+            speechSynthesis.speak(utterance);
+          });
+        });
+    
+        function speak(text) {
+          const utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'en-US';
+          speechSynthesis.speak(utterance);
+        };
+           
+    </script>
+    </body>
+</html>
+    

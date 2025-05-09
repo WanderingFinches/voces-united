@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Test</title>
+  <style>
+    .quiz-question {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Mini Quiz Test</h2>
+
+<div class="quiz-question" data-question-id="1">
+  <p>1. Which word is a noun?</p>
+  <button onclick="selectAnswer(this, 'correct')">Dog</button>
+  <button onclick="selectAnswer(this, 'incorrect')">Quickly</button>
+  <button onclick="selectAnswer(this, 'incorrect')">And</button>
+</div>
+
+<div class="quiz-question" data-question-id="2">
+  <p>2. What is 'she'?</p>
+  <button onclick="selectAnswer(this, 'correct')">Pronoun</button>
+  <button onclick="selectAnswer(this, 'incorrect')">Verb</button>
+  <button onclick="selectAnswer(this, 'incorrect')">Adverb</button>
+</div>
+
+<p id="quiz-result"></p>
+
+<script>
+function selectAnswer(button, result) {
+  const question = button.closest('.quiz-question');
+
+  if (question.classList.contains('answered')) return;
+
+  question.classList.add('answered');
+
+  const buttons = question.querySelectorAll('button');
+  buttons.forEach(btn => btn.disabled = true);
+
+  if (result === 'correct') {
+    button.style.backgroundColor = '#4CAF50';
+  } else {
+    button.style.backgroundColor = '#f44336';
+  }
+  button.style.color = 'white';
+
+  const allAnswered = [...document.querySelectorAll('.quiz-question')]
+    .every(q => q.classList.contains('answered'));
+
+  if (allAnswered) {
+    document.getElementById('quiz-result').textContent = "✅ Quiz complete! Great job!";
+  }
+}
+</script>
+
+</body>
+</html>
