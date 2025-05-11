@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Para Mi Amor</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Te amo, Laura ❤️</h1>
+        <div id="gift-box" onclick="openGift()">
+            <img src="./images/giftbox.jpg" alt="Gift Box" width="200">
+            <p>Haz clic en el regalo 🎁</p>
+          </div>
+
+        <div id="love-content" style="display: none;">
+            <h2>HAPPY MOTHER'S DAY</h2>  
+            <p>Desde que te conocí, mi vida ha sido más hermosa. Gracias por ser mi compañera, mi amor y mi mejor amiga.</p>
+            <p>Eres la persona más maravillosa que existe en este mundo.</p>
+            <p>Tu amor es mi mayor tesoro.</p>
+
+            <div class="timers">
+                <h2>🕰️ Momentos Especiales</h2>
+              
+                <p><strong>Tiempo juntos:</strong> <span id="together-timer"></span></p>
+                <p><strong>Desde nuestro aniversario:</strong> <span id="anniversary-timer"></span></p>
+                <p><strong>Faltan:</strong> <span id="next-anniversary-countdown"></span> para nuestro próximo aniversario 💍</p>
+                <p><strong>Edad de Orianna:</strong> <span id="baby-timer"></span></p>
+            </div>
+
+            <div class="carousel-container">
+              <button class="carousel-btn" onclick="changeSlide(-1)">❮</button>
+              <img class="carousel-slide" id="carousel-image" src="./images/jameslaura.JPG" alt="Memory 1">
+              <button class="carousel-btn" onclick="changeSlide(1)">❯</button>
+            </div>
+
+            <img src="https://img.freepik.com/premium-vector/cute-heart-kawaii-character-symbol-love-valentine-s-day-concept-hand-drawn-vector-emoticon_516241-457.jpg?w=740" alt="A cute heart" width="200">
+            <p><img src="./images/family.JPG" alt="Us together" width="300"></p>
+        </div>        
+        <div class="floating-container">
+            <span class="float heart">❤️</span>
+            <span class="float flower">🌸</span>
+            <span class="float heart">💖</span>
+            <span class="float flower">🌺</span>
+            <span class="float heart">💘</span>
+        </div>
+
+
+        <div id="firefly-container"></div>
+
+        <script>
+            function openGift() {
+              const box = document.getElementById("gift-box");
+              const content = document.getElementById("love-content");
+              if (box && content) {
+                box.style.display = "none";
+                content.style.display = "block";
+                
+                // 🎊 CONFETTI BURST
+                confetti({
+                  particleCount: 150,
+                  spread: 100,
+                  origin: { y: 0.6 }
+                });
+              }
+            }
+          </script>
+        
+        <script>
+            // TIMERS
+          function updateTimers() {
+            const now = new Date();
+            const togetherDate = new Date("2018-03-11T00:00:00");
+            const anniversaryDate = new Date("2018-09-11T00:00:00");
+            const babyBirthday = new Date("2022-08-11T19:25:00");
+
+            let nextAnniversary = new Date(now.getFullYear(), 8, 11);
+            if (nextAnniversary < now) nextAnniversary.setFullYear(nextAnniversary.getFullYear() + 1);
+
+            function getTimeDiff(start, end) {
+              const diffMs = end - start;
+              const diffSec = Math.floor(diffMs / 1000);
+              const mins = Math.floor(diffSec / 60) % 60;
+              const hours = Math.floor(diffSec / 3600) % 24;
+              const days = Math.floor(diffSec / (3600 * 24)) % 30;
+              const months = Math.floor(diffSec / (3600 * 24 * 30)) % 12;
+              const years = Math.floor(diffSec / (3600 * 24 * 365));
+              return { years, months, days, hours, mins };
+            }
+
+            const together = getTimeDiff(togetherDate, now);
+            const anniversary = getTimeDiff(anniversaryDate, now);
+            const baby = getTimeDiff(babyBirthday, now);
+            const daysToAnniversary = Math.ceil((nextAnniversary - now) / (1000 * 60 * 60 * 24));
+
+            const setText = (id, text) => {
+              const el = document.getElementById(id);
+              if (el) el.textContent = text;
+            };
+
+            setText("together-timer", `${together.years} años, ${together.months} meses, ${together.days} días, ${together.hours} horas y ${together.mins} minutos`);
+            setText("anniversary-timer", `${anniversary.years} años, ${anniversary.months} meses y ${anniversary.days} días`);
+            setText("next-anniversary-countdown", `${daysToAnniversary} días`);
+            setText("baby-timer", `${baby.years} años, ${baby.months} meses, ${baby.days} días, ${baby.hours} horas y ${baby.mins} minutos`);
+          }
+
+          document.addEventListener("DOMContentLoaded", function () {
+            updateTimers();
+            setInterval(updateTimers, 30000);
+          });
+
+        </script>    
+
+        <script>
+          // PHOTO CAROUSEL
+          const carouselImages = [
+            "./images/jameslaura.JPG",
+            "./images/jameslaura2.JPG",
+            "./images/jameslaura3.JPG",
+            "./images/jameslaura4.JPG",
+            "./images/jameslaura5.JPG",
+            "./images/jameslaura6.JPG",
+            "./images/jameslaura7.JPG",
+            "./images/orianna.JPG",
+            "./images/orianna2.JPEG",
+            "./images/orianna3.JPEG",
+            "./images/orianna4.JPEG",
+            "./images/orianna5.JPEG",
+            "./images/orianna6.JPEG",
+            "./images/orianna7.JPEG",
+            "./images/orianna8.JPEG",
+            "./images/orianna9.JPG",
+            "./images/orianna10.JPG",
+            "./images/orianna11.JPEG",
+            "./images/orianna12.JPEG",
+            "./images/orianna13.JPEG",
+            "./images/orianna14.JPG",
+            "./images/orianna15.JPEG",
+            "./images/orianna16.JPG",
+            "./images/orianna17.JPG",
+            "./images/orianna18.jpg",
+            "./images/orianna19.JPEG",
+            "./images/orianna20.JPG"
+          ];
+
+          let currentSlide = 0;
+
+          function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = carouselImages.length - 1;
+            if (currentSlide >= carouselImages.length) currentSlide = 0;
+            document.getElementById("carousel-image").src = carouselImages[currentSlide];
+          }
+        </script>      
+
+      
+
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"> </script>
+        <script>
+          // Firefly Animation
+          document.addEventListener("DOMContentLoaded", function () {
+            const now = new Date();
+            const hours = now.getHours();
+        
+            // Activate only at night (example: 6 PM to 6 AM)
+            if (hours >= 18 || hours <= 6) {
+              const fireflyContainer = document.getElementById("firefly-container");
+        
+              for (let i = 0; i < 50; i++) {  // You can adjust the number of fireflies
+                const firefly = document.createElement("div");
+                firefly.classList.add("firefly");
+                firefly.style.left = Math.random() * 100 + "vw";
+                firefly.style.top = Math.random() * 100 + "vh";
+                firefly.style.animationDuration = (5 + Math.random() * 10) + "s"; // different speeds
+                fireflyContainer.appendChild(firefly);
+              }
+            }
+          });
+        </script>
+
+    
+    </body>
+</html>
