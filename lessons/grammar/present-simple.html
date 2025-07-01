@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Present Simple - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <img src="../../assets/images/logo.jpg" alt="Voces United Logo">
+  </div>
+  <div class="titles">
+    <h1>Present Simple</h1>
+    <p>Grammar Lesson: Learn the Present Simple tense in English</p>
+  </div>
+  <nav>
+    <ul class="navbar">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+      <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+      <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+      <li><a href="../../lessons/videos/index.html">Videos</a></li>
+      <li><a href="../../lessons/activities/index.html">Activities</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section>
+  <h2>What is the Present Simple Tense?</h2>
+  <p>The Present Simple is used for routines, habits, facts, and general truths. It describes actions that happen regularly or things that are always true.</p>
+  <ul>
+    <li><strong>I work</strong> every day.</li>
+    <li><strong>She eats</strong> lunch at noon.</li>
+    <li><strong>The sun rises</strong> in the east.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>When to Use the Present Simple</h2>
+  <ul>
+    <li>Daily routines: <em>I brush my teeth every morning.</em></li>
+    <li>General truths: <em>Water boils at 100°C.</em></li>
+    <li>Scheduled events: <em>The train leaves at 6 PM.</em></li>
+    <li>Facts: <em>Birds fly.</em></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Grammar Structure</h2>
+  <ul>
+    <li><strong>Affirmative:</strong> Subject + base verb (+ s/es for he/she/it)</li>
+    <li><strong>Negative:</strong> Subject + do/does not + base verb</li>
+    <li><strong>Question:</strong> Do/Does + subject + base verb?</li>
+  </ul>
+  <p><strong>Examples:</strong></p>
+  <ul>
+    <li>He <strong>plays</strong> soccer. (affirmative)</li>
+    <li>We <strong>don’t play</strong> soccer. (negative)</li>
+    <li><strong>Do</strong> they <strong>play</strong> soccer? (question)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Practice Exercises</h2>
+  <p>Fill in the blanks with the correct form of the verb in Present Simple:</p>
+  <ol>
+    <li>She __________ (go) to school every day.</li>
+    <li>We __________ (not/watch) TV in the morning.</li>
+    <li>__________ he __________ (like) pizza?</li>
+    <li>The dog __________ (bark) at strangers.</li>
+    <li>I __________ (read) before bed.</li>
+  </ol>
+</section>
+
+<section id="quiz" class="grammar-section">
+  <h2>Present Simple Quiz</h2>
+  <div id="quiz-container">
+    <div class="quiz-question">
+      <p><strong>1. What is the correct sentence?</strong></p>
+      <button onclick="selectAnswer(this, 'correct')">He eats breakfast.</button>
+      <button onclick="selectAnswer(this, 'incorrect')">He eat breakfast.</button>
+      <button onclick="selectAnswer(this, 'incorrect')">He eating breakfast.</button>
+    </div>
+    <div class="quiz-question">
+      <p><strong>2. Which sentence is a question?</strong></p>
+      <button onclick="selectAnswer(this, 'correct')">Do you like apples?</button>
+      <button onclick="selectAnswer(this, 'incorrect')">I like apples.</button>
+      <button onclick="selectAnswer(this, 'incorrect')">You likes apples.</button>
+    </div>
+    <div class="quiz-question">
+      <p><strong>3. Choose the correct negative sentence:</strong></p>
+      <button onclick="selectAnswer(this, 'incorrect')">She no like tea.</button>
+      <button onclick="selectAnswer(this, 'correct')">She doesn’t like tea.</button>
+      <button onclick="selectAnswer(this, 'incorrect')">She don’t likes tea.</button>
+    </div>
+  </div>
+  <p id="quiz-result"></p>
+</section>
+
+<footer>
+  <p>Voces United © 2025 – Empowering through language</p>
+</footer>
+
+<script src="../../assets/js/quiz.js"></script>
+<script>
+function selectAnswer(button, result) {
+  if (result === 'correct') {
+    button.style.backgroundColor = '#c8e6c9';
+  } else {
+    button.style.backgroundColor = '#ffcdd2';
+  }
+}
+</script>
+</body>
+</html>

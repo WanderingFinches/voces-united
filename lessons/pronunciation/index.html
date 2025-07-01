@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voces United</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .filters {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .filters button {
+      margin: 5px;
+      padding: 8px 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .phoneme-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .phoneme-card {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .phoneme-symbol {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .keyword {
+      font-style: italic;
+      color: #333;
+    }
+    .keyword-image {
+        max-height: 40px;
+        margin-bottom: 5px;
+    }
+    .type {
+      font-size: 12px;
+      color: #777;
+    }
+    button.play-button {
+      margin-top: 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../../assets/images/logo.jpg" alt="Voces United Logo">
+        </div>
+        <div class="titles">
+            <h1>Voces United</h1>
+            <p>Learn English. Build Skills. Lead Your Future.</p>
+        </div>
+        <nav>
+            <ul class="navbar">
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+              <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+              <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+              <li><a href="../../lessons/videos/index.html">Videos</a></li>
+              <li><a href="../../lessons/activities/index.html">Activities</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <h1>English Phoneme Chart</h1>
+    <div class="filters">
+      <button onclick="filterPhonemes('all')">All</button>
+      <button onclick="filterPhonemes('vowel')">Vowels</button>
+      <button onclick="filterPhonemes('diphthong')">Diphthongs</button>
+      <button onclick="filterPhonemes('consonant')">Consonants</button>
+    </div>
+    <div class="phoneme-grid">
+        <!-- Vowel Sounds -->
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/iː/</div><img class="keyword-image" src="../../assets/images/sheep.png" alt="sheep"><div class="keyword">sheep</div><div class="type">Long vowel</div><button class="play-button" onclick="playSound('ee')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/ɪ/</div><div class="keyword">ship</div><div class="type">Short vowel</div><button class="play-button" onclick="playSound('ih')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/e/</div><div class="keyword">pen</div><div class="type">Short vowel</div><button class="play-button" onclick="playSound('eh')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/æ/</div><div class="keyword">cat</div><div class="type">Short vowel</div><button class="play-button" onclick="playSound('ae')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/ʌ/</div><div class="keyword">cup</div><div class="type">Short vowel</div><button class="play-button" onclick="playSound('uh')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/ɑː/</div><div class="keyword">car</div><div class="type">Long vowel</div><button class="play-button" onclick="playSound('aa')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/ɒ/</div><div class="keyword">hot</div><div class="type">Short vowel</div><button class="play-button" onclick="playSound('aw')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/ɔː/</div><div class="keyword">saw</div><div class="type">Long vowel</div><button class="play-button" onclick="playSound('or')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/ʊ/</div><div class="keyword">book</div><div class="type">Short vowel</div><button class="play-button" onclick="playSound('oo')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/uː/</div><div class="keyword">boot</div><div class="type">Long vowel</div><button class="play-button" onclick="playSound('u')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/ɜː/</div><div class="keyword">bird</div><div class="type">Long vowel</div><button class="play-button" onclick="playSound('er')">🔊 Play</button></div>
+        <div class="phoneme-card vowel"><div class="phoneme-symbol">/ə/</div><div class="keyword">about</div><div class="type">Schwa</div><button class="play-button" onclick="playSound('schwa')">🔊 Play</button></div>
+    
+        <!-- Diphthongs -->
+        <div class="phoneme-card diphthong"><div class="phoneme-symbol">/eɪ/</div><div class="keyword">say</div><div class="type">Diphthong</div><button class="play-button" onclick="playSound('ei')">🔊 Play</button></div>
+        <div class="phoneme-card diphthong"><div class="phoneme-symbol">/aɪ/</div><div class="keyword">my</div><div class="type">Diphthong</div><button class="play-button" onclick="playSound('ai')">🔊 Play</button></div>
+        <div class="phoneme-card diphthong"><div class="phoneme-symbol">/ɔɪ/</div><div class="keyword">boy</div><div class="type">Diphthong</div><button class="play-button" onclick="playSound('oi')">🔊 Play</button></div>
+        <div class="phoneme-card diphthong"><div class="phoneme-symbol">/aʊ/</div><div class="keyword">now</div><div class="type">Diphthong</div><button class="play-button" onclick="playSound('au')">🔊 Play</button></div>
+        <div class="phoneme-card diphthong"><div class="phoneme-symbol">/əʊ/</div><div class="keyword">go</div><div class="type">Diphthong</div><button class="play-button" onclick="playSound('ou')">🔊 Play</button></div>
+        <div class="phoneme-card diphthong"><div class="phoneme-symbol">/ɪə/</div><div class="keyword">ear</div><div class="type">Diphthong</div><button class="play-button" onclick="playSound('ia')">🔊 Play</button></div>
+        <div class="phoneme-card diphthong"><div class="phoneme-symbol">/eə/</div><div class="keyword">air</div><div class="type">Diphthong</div><button class="play-button" onclick="playSound('ea')">🔊 Play</button></div>
+        <div class="phoneme-card diphthong"><div class="phoneme-symbol">/ʊə/</div><div class="keyword">tour</div><div class="type">Diphthong</div><button class="play-button" onclick="playSound('ua')">🔊 Play</button></div>
+    
+        <!-- Consonants -->
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/p/</div><div class="keyword">pen</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('p')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/b/</div><div class="keyword">bat</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('b')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/t/</div><div class="keyword">top</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('t')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/d/</div><div class="keyword">dog</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('d')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/k/</div><div class="keyword">cat</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('k')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/g/</div><div class="keyword">go</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('g')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/f/</div><div class="keyword">fun</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('f')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/v/</div><div class="keyword">van</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('v')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/θ/</div><div class="keyword">think</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('th')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/ð/</div><div class="keyword">this</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('dh')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/s/</div><div class="keyword">see</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('s')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/z/</div><div class="keyword">zoo</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('z')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/ʃ/</div><div class="keyword">she</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('sh')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/ʒ/</div><div class="keyword">measure</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('zh')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/tʃ/</div><div class="keyword">check</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('ch')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/dʒ/</div><div class="keyword">jam</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('j')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/h/</div><div class="keyword">hat</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('h')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/m/</div><div class="keyword">man</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('m')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/n/</div><div class="keyword">no</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('n')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/ŋ/</div><div class="keyword">sing</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('ng')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/l/</div><div class="keyword">leg</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('l')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/r/</div><div class="keyword">red</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('r')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/w/</div><div class="keyword">wet</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('w')">🔊 Play</button></div>
+        <div class="phoneme-card consonant"><div class="phoneme-symbol">/j/</div><div class="keyword">yes</div><div class="type">Consonant</div><button class="play-button" onclick="playSound('y')">🔊 Play</button></div>
+      </div>
+    
+  
+    <script>
+      function playSound(label) {
+        const audio = new Audio(`../../assets/audio/${label}.mp3`);
+        audio.play();
+      }
+  
+      function filterPhonemes(type) {
+        const cards = document.querySelectorAll('.phoneme-card');
+        cards.forEach(card => {
+          if (type === 'all') {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.toggle('hidden', !card.classList.contains(type));
+          }
+        });
+      }
+    </script>
+
+    <footer>
+        <p>Voces United © 2025 – Empowering through language</p>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
