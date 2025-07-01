@@ -447,3 +447,20 @@ footer {
 #examples img:hover{
     cursor: pointer;
 }
+
+.verb-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+  
+.verb-table th, .verb-table td {
+    border: 1px solid #4CAF50;
+    padding: 12px;
+    text-align: center;
+}
+  
+.verb-table th {
+    background-color: #4CAF50;
+    color: white;
+}
