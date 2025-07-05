@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Routines - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png" />
+  <style>
+    .lesson-content {
+      padding: 20px;
+    }
+
+    .routine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .routine-card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .routine-card img {
+      width: 100%;
+      max-height: 100px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .routine-card p {
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    .translation-toggle {
+      margin-top: 8px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .quiz-section {
+      margin-top: 30px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #f0f0f0;
+    }
+
+    .challenge-box {
+      background-color: #e8ffe8;
+      border-left: 5px solid #4CAF50;
+      padding: 15px;
+      margin-top: 30px;
+      font-weight: bold;
+    }
+
+    .checklist {
+      margin-top: 20px;
+    }
+
+    .checklist label {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body id="daily-routines">
+  <header>
+    <div class="logo-container">
+      <img src="../../assets/images/logo.jpg" alt="Voces United Logo">
+    </div>
+    <div class="titles">
+      <h1>Daily Routines</h1>
+      <p>Learn English words for everyday activities</p>
+    </div>
+    <nav>
+      <ul class="navbar">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+        <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+        <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+        <li><a href="../../lessons/videos/index.html">Videos</a></li>
+        <li><a href="../../lessons/activities/index.html">Activities</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="lesson-content">
+    <h2>Introduction</h2>
+    <p>We do many things every day. These are our daily routines. Let’s learn some of the most common ones.</p>
+
+    <h2>Vocabulary</h2>
+    <div class="routine-grid">
+      <!-- Wake up -->
+<div class="routine-card">
+    <img src="../../assets/images/routines/wake-up.png" alt="Wake up" />
+    <p class="translation-toggle">
+      <span class="english">To wake up</span>
+      <span class="spanish hidden">Despertarse</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('wake-up')">🔊</button>
+    </p>
+    <audio id="wake-up" src="../../assets/audio/routines/wake-up.mp3"></audio>
+  </div>
+  
+  <!-- Brush teeth -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/brush-teeth.png" alt="Brush teeth" />
+    <p class="translation-toggle">
+      <span class="english">To brush your teeth</span>
+      <span class="spanish hidden">Cepillarse los dientes</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('brush-teeth')">🔊</button>
+    </p>
+    <audio id="brush-teeth" src="../../assets/audio/routines/brush-teeth.mp3"></audio>
+  </div>
+  
+  <!-- Take a shower -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/take-shower.png" alt="Take a shower" />
+    <p class="translation-toggle">
+      <span class="english">To take a shower</span>
+      <span class="spanish hidden">Ducharse</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('take-shower')">🔊</button>
+    </p>
+    <audio id="take-shower" src="../../assets/audio/routines/take-shower.mp3"></audio>
+  </div>
+  
+  <!-- Get dressed -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/get-dressed.png" alt="Get dressed" />
+    <p class="translation-toggle">
+      <span class="english">To get dressed</span>
+      <span class="spanish hidden">Vestirse</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('get-dressed')">🔊</button>
+    </p>
+    <audio id="get-dressed" src="../../assets/audio/routines/get-dressed.mp3"></audio>
+  </div>
+  
+  <!-- Make breakfast -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/make-breakfast.png" alt="Make breakfast" />
+    <p class="translation-toggle">
+      <span class="english">To make breakfast</span>
+      <span class="spanish hidden">Preparar el desayuno</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('make-breakfast')">🔊</button>
+    </p>
+    <audio id="make-breakfast" src="../../assets/audio/routines/make-breakfast.mp3"></audio>
+  </div>
+  
+  <!-- Eat breakfast -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/eat-breakfast.png" alt="Eat breakfast" />
+    <p class="translation-toggle">
+      <span class="english">To eat breakfast</span>
+      <span class="spanish hidden">Desayunar</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('eat-breakfast')">🔊</button>
+    </p>
+    <audio id="eat-breakfast" src="../../assets/audio/routines/eat-breakfast.mp3"></audio>
+  </div>
+  
+  <!-- Make coffee -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/make-coffee.png" alt="Make coffee" />
+    <p class="translation-toggle">
+      <span class="english">To make coffee</span>
+      <span class="spanish hidden">Preparar café</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('make-coffee')">🔊</button>
+    </p>
+    <audio id="make-coffee" src="../../assets/audio/routines/make-coffee.mp3"></audio>
+  </div>
+  
+  <!-- Drink coffee -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/drink-coffee.png" alt="Drink coffee" />
+    <p class="translation-toggle">
+      <span class="english">To drink coffee</span>
+      <span class="spanish hidden">Tomar café</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('drink-coffee')">🔊</button>
+    </p>
+    <audio id="drink-coffee" src="../../assets/audio/routines/drink-coffee.mp3"></audio>
+  </div>
+  
+  <!-- Go to work -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/go-to-work.png" alt="Go to work" />
+    <p class="translation-toggle">
+      <span class="english">To go to work</span>
+      <span class="spanish hidden">Ir al trabajo</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('go-to-work')">🔊</button>
+    </p>
+    <audio id="go-to-work" src="../../assets/audio/routines/go-to-work.mp3"></audio>
+  </div>
+  
+  <!-- Eat lunch -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/eat-lunch.png" alt="Eat lunch" />
+    <p class="translation-toggle">
+      <span class="english">To eat lunch</span>
+      <span class="spanish hidden">Almorzar</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('eat-lunch')">🔊</button>
+    </p>
+    <audio id="eat-lunch" src="../../assets/audio/routines/eat-lunch.mp3"></audio>
+  </div>
+  
+  <!-- Cook dinner -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/cook-dinner.png" alt="Cook dinner" />
+    <p class="translation-toggle">
+      <span class="english">To cook dinner</span>
+      <span class="spanish hidden">Cocinar la cena</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('cook-dinner')">🔊</button>
+    </p>
+    <audio id="cook-dinner" src="../../assets/audio/routines/cook-dinner.mp3"></audio>
+  </div>
+  
+  <!-- Watch TV -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/watch-tv.png" alt="Watch TV" />
+    <p class="translation-toggle">
+      <span class="english">To watch TV</span>
+      <span class="spanish hidden">Ver la televisión</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('watch-tv')">🔊</button>
+    </p>
+    <audio id="watch-tv" src="../../assets/audio/routines/watch-tv.mp3"></audio>
+  </div>
+  
+  <!-- Eat dinner -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/eat-dinner.jpg" alt="Eat dinner" />
+    <p class="translation-toggle">
+      <span class="english">To eat dinner</span>
+      <span class="spanish hidden">Cenar</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('eat-dinner')">🔊</button>
+    </p>
+    <audio id="eat-dinner" src="../../assets/audio/routines/eat-dinner.mp3"></audio>
+  </div>
+  
+  <!-- Go to sleep -->
+  <div class="routine-card">
+    <img src="../../assets/images/routines/sleep.jpg" alt="Go to sleep" />
+    <p class="translation-toggle">
+      <span class="english">To go to sleep</span>
+      <span class="spanish hidden">Ir a dormir</span>
+      <button onclick="toggleTranslation(this)">🌐</button>
+      <button onclick="playAudio('go-to-sleep')">🔊</button>
+    </p>
+    <audio id="go-to-sleep" src="../../assets/audio/routines/go-to-sleep.mp3"></audio>
+  </div>
+    </div>
+
+    <h3>Practice Sentences</h3>
+    <ul>
+      <li>I wake up at 7:00 AM.</li>
+      <li>She eats breakfast every morning.</li>
+      <li>We go to work by car.</li>
+    </ul>
+
+    <div class="checklist">
+      <h3>Progress Checklist</h3>
+      <label><input type="checkbox" /> I learned “To wake up”</label>
+      <label><input type="checkbox" /> I learned “To brush your teeth”</label>
+      <label><input type="checkbox" /> I learned “To eat breakfast”</label>
+      <!-- Add more as needed -->
+    </div>
+
+    <div class="quiz-section">
+      <h3>Mini Quiz</h3>
+      <p>Match the action with the image:</p>
+      <img src="../../assets/images/routines/brush-teeth.png" alt="Quiz Image" style="width: 100px;" />
+      <select>
+        <option value="">-- Choose an action --</option>
+        <option>To wake up</option>
+        <option>To brush your teeth</option>
+        <option>To eat dinner</option>
+      </select>
+    </div>
+
+    <div class="challenge-box">
+      🎯 <strong>Real Life Challenge:</strong> Ask someone, “What time do you wake up?” and answer in English.
+    </div>
+
+    <h3>Video Lesson</h3>
+    <p>(Coming soon!)</p>
+    <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+      <p>Video Placeholder</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Voces United © 2025 – Empowering through language</p>
+  </footer>
+
+  <script>
+    function playAudio(id) {
+      const audio = document.getElementById(id);
+      if (audio) {
+        audio.play();
+      }
+    }
+
+    function toggleTranslation(button) {
+      const parent = button.parentElement;
+      parent.querySelector('.english').classList.toggle('hidden');
+      parent.querySelector('.spanish').classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
