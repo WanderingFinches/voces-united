@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prepositions & Directions - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    section { margin: 20px 16px; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+    .vocab-table th, .vocab-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    .vocab-table th { background: #f0f0f0; }
+    .fill-blank, .quiz-section { margin: 16px 0; }
+    .fill-blank p { margin: 8px 0; }
+    .fill-blank select { margin-left: 8px; }
+    .lesson-button { margin-top: 8px; padding: 8px 12px; background: #e0f7fa; border: none; border-radius: 4px; cursor: pointer; }
+    .quiz-section p { margin: 10px 0; }
+    #fill-feedback, #listen-feedback, #quiz-result { font-weight: bold; margin-top: 8px; }
+    .dialogue { margin: 16px 0; }
+    .dialogue div { margin-bottom: 12px; }
+    .dialogue strong { display: inline-block; width: 80px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container"><img src="../../assets/images/logo.jpg" alt="Voces United Logo" /></div>
+    <div class="titles"><h1>Prepositions &amp; Directions</h1><p>Grammar &amp; Practice</p></div>
+    <nav>
+      <ul class="navbar">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+        <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+        <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+        <li><a href="../../lessons/videos/index.html">Videos</a></li>
+        <li><a href="../../lessons/activities/index.html">Activities</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <img src="../../assets/images/prepositons/prepositions.png" alt="Let's Learn the Prepositions">
+    <h2>Prepositions of Place &amp; Movement</h2>
+    <table class="vocab-table">
+      <tr><th>English</th><th>Spanish</th><th>Example</th></tr>
+      <tr><td>in</td><td>en</td><td>The cat is in the box.</td></tr>
+      <tr><td>on</td><td>sobre</td><td>The book is on the table.</td></tr>
+      <tr><td>under</td><td>debajo de</td><td>The ball is under the chair.</td></tr>
+      <tr><td>next to</td><td>al lado de</td><td>The school is next to the park.</td></tr>
+      <tr><td>between</td><td>entre</td><td>The bank is between the library and the post office.</td></tr>
+      <tr><td>behind</td><td>detrás de</td><td>The pharmacy is behind the supermarket.</td></tr>
+      <tr><td>across from</td><td>al frente de</td><td>The restaurant is across from the hospital.</td></tr>
+      <tr><td>through</td><td>a través de</td><td>Walk through the park.</td></tr>
+      <tr><td>along</td><td>a lo largo de</td><td>Walk along Main Street.</td></tr>
+      <tr><td>past</td><td>pasar</td><td>Go past the bus stop.</td></tr>
+    </table>
+  </section>
+
+  <section class="fill-blank">
+    <h2>Fill in the Blanks</h2>
+    <!-- 10 blanks -->
+    <p>1. The cat is ___ the box. <select id="blank1"><option></option><option>in</option><option>on</option><option>under</option></select></p>
+    <p>2. The book is ___ the table. <select id="blank2"><option></option><option>in</option><option>on</option><option>under</option></select></p>
+    <p>3. The ball is ___ the chair. <select id="blank3"><option></option><option>in</option><option>on</option><option>under</option></select></p>
+    <p>4. The school is ___ the park. <select id="blank4"><option></option><option>next to</option><option>between</option><option>behind</option></select></p>
+    <p>5. The bank is ___ the library. <select id="blank5"><option></option><option>across from</option><option>between</option><option>next to</option></select></p>
+    <p>6. The pharmacy is ___ the supermarket. <select id="blank6"><option></option><option>behind</option><option>next to</option><option>across from</option></select></p>
+    <p>7. Walk ___ the park. <select id="blank7"><option></option><option>through</option><option>along</option><option>past</option></select></p>
+    <p>8. Go ___ the bus stop. <select id="blank8"><option></option><option>past</option><option>through</option><option>along</option></select></p>
+    <p>9. The restaurant is ___ the hospital. <select id="blank9"><option></option><option>across from</option><option>next to</option><option>behind</option></select></p>
+    <p>10. The school is ___ the bank and the park. <select id="blank10"><option></option><option>between</option><option>across from</option><option>next to</option></select></p>
+    <button class="lesson-button" onclick="checkBlanks()">Check All</button>
+    <p id="fill-feedback"></p>
+  </section>
+
+  <section class="listening-section">
+    <h2>Listening Practice</h2>
+    <p>Listen and choose where you go:</p>
+    <audio src="../../assets/audio/directions/example1.mp3" controls></audio>
+    <form id="listen-form">
+      <label><input type="radio" name="loc" value="park"> Park</label><br>
+      <label><input type="radio" name="loc" value="library"> Library</label><br>
+      <label><input type="radio" name="loc" value="bank"> Bank</label><br>
+      <button type="submit" class="lesson-button">Submit</button>
+      <p id="listen-feedback"></p>
+    </form>
+  </section>
+
+  <section class="dialogue">
+    <h2>Role-Plays: Asking for Directions</h2>
+    <div><strong>A:</strong> Excuse me, where is the post office?<br><strong>B:</strong> Go straight and turn right at the pharmacy.</div>
+    <div><strong>A:</strong> How do I get to the library?<br><strong>B:</strong> Walk past the supermarket and it’s on your left.</div>
+    <div><strong>A:</strong> Can you tell me where the park is?<br><strong>B:</strong> The park is between the bank and the school.</div>
+    <div><strong>A:</strong> Is the restaurant across from the hospital?<br><strong>B:</strong> Yes, it’s right across from the main entrance.</div>
+  </section>
+
+  <section class="quiz-section">
+    <h2>Quiz: Choose the Right Preposition</h2>
+    <form id="prep-quiz">
+      <!-- 10 quiz questions -->
+      <p>1. The cat is ___ the box. <label><input type="radio" name="q1" value="in"> in</label> <label><input type="radio" name="q1" value="on"> on</label></p>
+      <p>2. The book is ___ the table. <label><input type="radio" name="q2" value="on"> on</label> <label><input type="radio" name="q2" value="under"> under</label></p>
+      <p>3. The ball is ___ the chair. <label><input type="radio" name="q3" value="under"> under</label> <label><input type="radio" name="q3" value="in"> in</label></p>
+      <p>4. The school is ___ the park. <label><input type="radio" name="q4" value="next to"> next to</label> <label><input type="radio" name="q4" value="between"> between</label></p>
+      <p>5. The bank is ___ the library. <label><input type="radio" name="q5" value="between"> between</label> <label><input type="radio" name="q5" value="behind"> behind</label></p>
+      <p>6. Walk ___ the park. <label><input type="radio" name="q6" value="through"> through</label> <label><input type="radio" name="q6" value="along"> along</label></p>
+      <p>7. Go ___ the bus stop. <label><input type="radio" name="q7" value="past"> past</label> <label><input type="radio" name="q7" value="through"> through</label></p>
+      <p>8. The restaurant is ___ the hospital. <label><input type="radio" name="q8" value="across from"> across from</label> <label><input type="radio" name="q8" value="next to"> next to</label></p>
+      <p>9. The pharmacy is ___ the supermarket. <label><input type="radio" name="q9" value="behind"> behind</label> <label><input type="radio" name="q9" value="next to"> next to</label></p>
+      <p>10. The park is ___ the school and the bank. <label><input type="radio" name="q10" value="between"> between</label> <label><input type="radio" name="q10" value="across from"> across from</label></p>
+      <button type="submit" class="lesson-button">Check Answers</button>
+      <p id="quiz-result"></p>
+    </form>
+  </section>
+
+  <section class="lesson-progress">
+    <a href="../../assets/worksheets/prepositions_directions_worksheet.pdf" class="lesson-button" download>Download Worksheet</a>
+  </section>
+
+  <footer>
+    <p>Voces United - Empowering Professionals Through Language</p>
+  </footer>
+
+  <script>
+    function checkBlanks() {
+      let correct = 0;
+      const answers = ['in','on','under','next to','between','behind','through','past','across from','between'];
+      for (let i = 1; i <= 10; i++) {
+        if (document.getElementById(`blank${i}`).value === answers[i-1]) correct++;
+      }
+      document.getElementById('fill-feedback').textContent = `You got ${correct} / 10 correct.`;
+    }
+    document.getElementById('listen-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('listen-feedback').textContent = this.loc.value === 'library' ? 'Well done!' : 'Try again.';
+    });
+    document.getElementById('prep-quiz').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let score = 0;
+      const answers = {q1:'in',q2:'on',q3:'under',q4:'next to',q5:'between',q6:'through',q7:'past',q8:'across from',q9:'behind',q10:'between'};
+      Object.keys(answers).forEach(q => { if (this[q].value === answers[q]) score++; });
+      document.getElementById('quiz-result').textContent = `You got ${score} / 10 correct.`;
+    });
+  </script>
+</body>
+</html>

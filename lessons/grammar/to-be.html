@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verb "To Be" & Adjectives - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    section { margin: 20px 16px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    th { background: #f0f0f0; }
+    .audio-btn { background: none; border: none; font-size: 1rem; cursor: pointer; }
+    .quiz-section p { margin: 12px 0; }
+    .lesson-button { margin-top: 8px; padding: 8px 12px; background: #e0f7fa; border: none; border-radius: 4px; cursor: pointer; }
+    #to-be-result { font-weight: bold; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="../../assets/images/logo.jpg" alt="Voces United Logo" />
+    </div>
+    <div class="titles">
+      <h1>Verb "To Be" (Present)</h1>
+      <p>Grammar &amp; Vocabulary</p>
+    </div>
+    <nav>
+      <ul class="navbar">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+        <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+        <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+        <li><a href="../../lessons/videos/index.html">Videos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Conjugation of "To Be" (Present)</h2>
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>Form</th>
+        <th>Listen</th>
+      </tr>
+      <tr>
+        <td>I</td>
+        <td>am</td>
+        <td><button class="audio-btn" onclick="playAudio('to_be_i_am')">🔊</button></td>
+      </tr>
+      <tr>
+        <td>You</td>
+        <td>are</td>
+        <td><button class="audio-btn" onclick="playAudio('to_be_you_are')">🔊</button></td>
+      </tr>
+      <tr>
+        <td>He / She / It</td>
+        <td>is</td>
+        <td><button class="audio-btn" onclick="playAudio('to_be_he_is')">🔊</button></td>
+      </tr>
+      <tr>
+        <td>We</td>
+        <td>are</td>
+        <td><button class="audio-btn" onclick="playAudio('to_be_we_are')">🔊</button></td>
+      </tr>
+      <tr>
+        <td>You (pl.)</td>
+        <td>are</td>
+        <td><button class="audio-btn" onclick="playAudio('to_be_you_plural_are')">🔊</button></td>
+      </tr>
+      <tr>
+        <td>They</td>
+        <td>are</td>
+        <td><button class="audio-btn" onclick="playAudio('to_be_they_are')">🔊</button></td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="explanation">
+    <h2>What Is "To Be"?</h2>
+    <p>The verb <em>to be</em> is essential in English. It links the subject to a noun, adjective, or location. We use it to introduce people, talk about professions, describe feelings, give the date and time, and state where things are.</p>
+    <p><strong>Forms:</strong> <em>I am</em>, <em>you are</em>, <em>he/she/it is</em>, <em>we are</em>, <em>they are</em>.</p>
+
+    <h2>¿Qué es "To Be"?</h2>
+    <p>El verbo <em>to be</em> es esencial en inglés. Conecta el sujeto con un sustantivo, adjetivo o ubicación. Lo usamos para presentarnos, hablar de profesiones, describir sentimientos, indicar la fecha y la hora, y señalar dónde están las cosas.</p>
+    <p><strong>Formas:</strong> <em>I am</em> (yo soy/estoy), <em>you are</em> (tú eres/estás), <em>he/she/it is</em> (él/ella es/está), <em>we are</em> (nosotros somos/estamos), <em>they are</em> (ellos son/están).</p>
+  </section>
+
+  <section>
+    <h2>Introduce Yourself or Others</h2>
+    <table>
+      <tr><th>English</th><th>Spanish</th><th>Listen</th></tr>
+      <tr><td>Name</td><td>Nombre</td><td><button class="audio-btn" onclick="playAudio('intro_name')">🔊</button></td></tr>
+      <tr><td>Age</td><td>Edad</td><td><button class="audio-btn" onclick="playAudio('intro_age')">🔊</button></td></tr>
+      <tr><td>Nationality</td><td>Nacionalidad</td><td><button class="audio-btn" onclick="playAudio('intro_nationality')">🔊</button></td></tr>
+      <tr><td>Hometown</td><td>Ciudad natal</td><td><button class="audio-btn" onclick="playAudio('intro_hometown')">🔊</button></td></tr>
+      <tr><td>Language</td><td>Idioma</td><td><button class="audio-btn" onclick="playAudio('intro_language')">🔊</button></td></tr>
+      <tr><td>City</td><td>Ciudad</td><td><button class="audio-btn" onclick="playAudio('intro_city')">🔊</button></td></tr>
+      <tr><td>Country</td><td>País</td><td><button class="audio-btn" onclick="playAudio('intro_country')">🔊</button></td></tr>
+      <tr><td>Address</td><td>Dirección</td><td><button class="audio-btn" onclick="playAudio('intro_address')">🔊</button></td></tr>
+      <tr><td>Email</td><td>Correo electrónico</td><td><button class="audio-btn" onclick="playAudio('intro_email')">🔊</button></td></tr>
+      <tr><td>Phone number</td><td>Número de teléfono</td><td><button class="audio-btn" onclick="playAudio('intro_phone')">🔊</button></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Job or Profession</h2>
+    <table>
+      <tr><th>English</th><th>Spanish</th><th>Listen</th></tr>
+      <tr><td>Teacher</td><td>Maestro/a</td><td><button class="audio-btn" onclick="playAudio('pro_teacher')">🔊</button></td></tr>
+      <tr><td>Doctor</td><td>Doctor/a</td><td><button class="audio-btn" onclick="playAudio('pro_doctor')">🔊</button></td></tr>
+      <tr><td>Engineer</td><td>Ingeniero/a</td><td><button class="audio-btn" onclick="playAudio('pro_engineer')">🔊</button></td></tr>
+      <tr><td>Nurse</td><td>Enfermero/a</td><td><button class="audio-btn" onclick="playAudio('pro_nurse')">🔊</button></td></tr>
+      <tr><td>Waiter/Waitress</td><td>Camarero/a</td><td><button class="audio-btn" onclick="playAudio('pro_waiter')">🔊</button></td></tr>
+      <tr><td>Driver</td><td>Conductor</td><td><button class="audio-btn" onclick="playAudio('pro_driver')">🔊</button></td></tr>
+      <tr><td>Student</td><td>Estudiante</td><td><button class="audio-btn" onclick="playAudio('pro_student')">🔊</button></td></tr>
+      <tr><td>Lawyer</td><td>Abogado/a</td><td><button class="audio-btn" onclick="playAudio('pro_lawyer')">🔊</button></td></tr>
+      <tr><td>Manager</td><td>Gerente</td><td><button class="audio-btn" onclick="playAudio('pro_manager')">🔊</button></td></tr>
+      <tr><td>Chef</td><td>Chef</td><td><button class="audio-btn" onclick="playAudio('pro_chef')">🔊</button></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Date and Time</h2>
+    <table>
+      <tr><th>English</th><th>Spanish</th><th>Listen</th></tr>
+      <tr><td>Today</td><td>Hoy</td><td><button class="audio-btn" onclick="playAudio('date_today')">🔊</button></td></tr>
+      <tr><td>Tomorrow</td><td>Mañana</td><td><button class="audio-btn" onclick="playAudio('date_tomorrow')">🔊</button></td></tr>
+      <tr><td>Yesterday</td><td>Ayer</td><td><button class="audio-btn" onclick="playAudio('date_yesterday')">🔊</button></td></tr>
+      <tr><td>Monday</td><td>Lunes</td><td><button class="audio-btn" onclick="playAudio('date_monday')">🔊</button></td></tr>
+      <tr><td>January</td><td>Enero</td><td><button class="audio-btn" onclick="playAudio('date_january')">🔊</button></td></tr>
+      <tr><td>February</td><td>Febrero</td><td><button class="audio-btn" onclick="playAudio('date_february')">🔊</button></td></tr>
+      <tr><td>Morning</td><td>mañana</td><td><button class="audio-btn" onclick="playAudio('date_morning')">🔊</button></td></tr>
+      <tr><td>Afternoon</td><td>Tarde</td><td><button class="audio-btn" onclick="playAudio('date_afternoon')">🔊</button></td></tr>
+      <tr><td>Evening</td><td>Noche</td><td><button class="audio-btn" onclick="playAudio('date_evening')">🔊</button></td></tr>
+      <tr><td>Hour</td><td>Hora</td><td><button class="audio-btn" onclick="playAudio('date_hour')">🔊</button></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Mood or Feelings</h2>
+    <table>
+      <tr><th>English</th><th>Spanish</th><th>Listen</th></tr>
+      <tr><td>Happy</td><td>Feliz</td><td><button class="audio-btn" onclick="playAudio('mood_happy')">🔊</button></td></tr>
+      <tr><td>Sad</td><td>Triste</td><td><button class="audio-btn" onclick="playAudio('mood_sad')">🔊</button></td></tr>
+      <tr><td>Angry</td><td>Enojado/a</td><td><button class="audio-btn" onclick="playAudio('mood_angry')">🔊</button></td></tr>
+      <tr><td>Tired</td><td>Cansado/a</td><td><button class="audio-btn" onclick="playAudio('mood_tired')">🔊</button></td></tr>
+      <tr><td>Excited</td><td>Emocionado/a</td><td><button class="audio-btn" onclick="playAudio('mood_excited')">🔊</button></td></tr>
+      <tr><td>Bored</td><td>Aburrido/a</td><td><button class="audio-btn" onclick="playAudio('mood_bored')">🔊</button></td></tr>
+      <tr><td>Nervous</td><td>Nervioso/a</td><td><button class="audio-btn" onclick="playAudio('mood_nervous')">🔊</button></td></tr>
+      <tr><td>Calm</td><td>Calmado/a</td><td><button class="audio-btn" onclick="playAudio('mood_calm')">🔊</button></td></tr>
+      <tr><td>Surprised</td><td>Sorprendido/a</td><td><button class="audio-btn" onclick="playAudio('mood_surprised')">🔊</button></td></tr>
+      <tr><td>Proud</td><td>Orgulloso/a</td><td><button class="audio-btn" onclick="playAudio('mood_proud')">🔊</button></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Description</h2>
+    <table>
+      <tr><th>English</th><th>Spanish</th><th>Listen</th></tr>
+      <tr><td>Big</td><td>Grande</td><td><button class="audio-btn" onclick="playAudio('desc_big')">🔊</button></td></tr>
+      <tr><td>Small</td><td>Pequeño/a</td><td><button class="audio-btn" onclick="playAudio('desc_small')">🔊</button></td></tr>
+      <tr><td>Tall</td><td>Alto/a</td><td><button class="audio-btn" onclick="playAudio('desc_tall')">🔊</button></td></tr>
+      <tr><td>Short</td><td>Bajo/a</td><td><button class="audio-btn" onclick="playAudio('desc_short')">🔊</button></td></tr>
+      <tr><td>Young</td><td>Joven</td><td><button class="audio-btn" onclick="playAudio('desc_young')">🔊</button></td></tr>
+      <tr><td>Old</td><td>Viejo/a</td><td><button class="audio-btn" onclick="playAudio('desc_old')">🔊</button></td></tr>
+      <tr><td>Beautiful</td><td>Hermoso/a</td><td><button class="audio-btn" onclick="playAudio('desc_beautiful')">🔊</button></td></tr>
+      <tr><td>Interesting</td><td>Interesante</td><td><button class="audio-btn" onclick="playAudio('desc_interesting')">🔊</button></td></tr>
+      <tr><td>Easy</td><td>Fácil</td><td><button class="audio-btn" onclick="playAudio('desc_easy')">🔊</button></td></tr>
+      <tr><td>Difficult</td><td>Difícil</td><td><button class="audio-btn" onclick="playAudio('desc_difficult')">🔊</button></td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Location</h2>
+    <table>
+      <tr><th>English</th><th>Spanish</th><th>Listen</th></tr>
+      <tr><td>Here</td><td>Aquí</td><td><button class="audio-btn" onclick="playAudio('loc_here')">🔊</button></td></tr>
+      <tr><td>There</td><td>Allí</td><td><button class="audio-btn" onclick="playAudio('loc_there')">🔊</button></td></tr>
+      <tr><td>Nearby</td><td>Cerca</td><td><button class="audio-btn" onclick="playAudio('loc_nearby')">🔊</button></td></tr>
+      <tr><td>Far</td><td>Lejos</td><td><button class="audio-btn" onclick="playAudio('loc_far')">🔊</button></td></tr>
+      <tr><td>Left</td><td>Izquierda</td><td><button class="audio-btn" onclick="playAudio('loc_left')">🔊</button></td></tr>
+      <tr><td>Right</td><td>Derecha</td><td><button class="audio-btn" onclick="playAudio('loc_right')">🔊</button></td></tr>
+      <tr><td>Inside</td><td>Dentro</td><td><button class="audio-btn" onclick="playAudio('loc_inside')">🔊</button></td></tr>
+      <tr><td>Outside</td><td>Fuera</td><td><button class="audio-btn" onclick="playAudio('loc_outside')">🔊</button></td></tr>
+      <tr><td>Under</td><td>Debajo</td><td><button class="audio-btn" onclick="playAudio('loc_under')">🔊</button></td></tr>
+      <tr><td>Next to</td><td>Al lado de</td><td><button class="audio-btn" onclick="playAudio('loc_next_to')">🔊</button></td></tr>
+    </table>
+  </section>
+
+  <section class="quiz-section">
+    <h2>Quiz: Use "To Be" Correctly</h2>
+    <form id="to-be-quiz">
+      <p><strong>1. She ___ happy today.</strong><br>
+        <label><input type="radio" name="q1" value="is"> is</label>
+        <label><input type="radio" name="q1" value="are"> are</label>
+      </p>
+      <p><strong>2. I ___ tired after work.</strong><br>
+        <label><input type="radio" name="q2" value="am"> am</label>
+        <label><input type="radio" name="q2" value="is"> is</label>
+      </p>
+      <p><strong>3. They ___ excited for the trip.</strong><br>
+        <label><input type="radio" name="q3" value="are"> are</label>
+        <label><input type="radio" name="q3" value="am"> am</label>
+      </p>
+      <button type="submit" class="lesson-button">Check Answers</button>
+      <p id="to-be-result"></p>
+    </form>
+  </section>
+
+  <section class="lesson-progress">
+    <a href="../../assets/worksheets/to_be_conjugation_worksheet.pdf" class="lesson-button" download>Download Worksheet</a>
+    <a href="../../assets/certificates/to_be_conjugation_certificate.pdf" class="lesson-button" download>Download Certificate</a>
+  </section>
+
+  <footer>
+    <p>Voces United - Empowering Professionals Through Language</p>
+  </footer>
+
+  <script>
+    function playAudio(name) {
+      new Audio(`../../assets/audio/grammar/${name}.mp3`).play();
+    }
+    document.getElementById('to-be-quiz').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let score = 0;
+      if (this.q1.value === 'is') score++;
+      if (this.q2.value === 'am') score++;
+      if (this.q3.value === 'are') score++;
+      document.getElementById('to-be-result').textContent = `You got ${score} out of 3 correct.`;
+    });
+  </script>
+</body>
+</html>

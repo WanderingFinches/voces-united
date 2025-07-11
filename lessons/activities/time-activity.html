@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Days & Months Matching Game - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --primary-bg: #ffffff;
+      --primary-text: #333333;
+      --accent-bg: #e0f7fa;
+      --correct-color: #e6ffe6;
+      --incorrect-color: #ffe6e6;
+    }
+    body {
+      background: var(--primary-bg);
+      color: var(--primary-text);
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: var(--accent-bg);
+    }
+    .logo-container img { height: 40px; }
+    .titles { margin-left: 8px; }
+    .titles h1 { margin: 0; font-size: 1.25rem; }
+    nav .navbar { list-style: none; display: flex; gap: 0.75rem; margin-left: auto; padding: 0; }
+    nav .navbar a { text-decoration: none; color: inherit; font-size: 0.9rem; }
+    #progress-section { text-align: center; padding: 8px; background: #f9f9f9; }
+    #matchProgress { width: 80%; height: 16px; }
+    .badge {
+      position: fixed;
+      top: 20%; left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-bg);
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      animation: fadeIn 0.5s ease-out;
+      text-align: center;
+    }
+    .hidden { display: none; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+
+    .match-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 16px;
+      gap: 16px;
+    }
+    .draggables, .droppables { width: 48%; }
+    .draggable {
+      padding: 6px 8px;
+      margin: 4px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      cursor: grab;
+      font-size: 0.9rem;
+      transition: transform 0.2s;
+    }
+    .draggable:hover { transform: scale(1.02); }
+    .draggable:active { cursor: grabbing; }
+    .droppable {
+      padding: 6px 8px;
+      margin: 4px;
+      min-height: 30px;
+      background: #fff;
+      border: 2px dashed #ccc;
+      font-size: 0.9rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .droppable.correct { border-color: green; background: var(--correct-color); animation: snapIn 0.3s ease-out; }
+    .droppable.incorrect { border-color: red; background: var(--incorrect-color); animation: shake 0.5s; }
+    @keyframes snapIn { from { transform: scale(1.1); } to { transform: scale(1); }}
+    @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 50% { transform: translateX(4px); } 75% { transform: translateX(-4px); }}
+
+    @media (max-width: 600px) {
+      .match-container { flex-direction: column; align-items: center; }
+      .draggables, .droppables { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container"><img src="../../assets/images/logo.jpg" alt="Logo"></div>
+    <div class="titles">
+      <h1>Days & Months Matching Game</h1>
+      <p style="margin:0;font-size:0.85rem;">Drag and Drop Practice</p>
+    </div>
+    <nav><ul class="navbar">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+      <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+      <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+      <li><a href="../../lessons/videos/index.html">Videos</a></li>
+      <li><a href="../../lessons/activities/index.html">Activities</a></li>
+    </ul></nav>
+  </header>
+
+  <section id="progress-section">
+    <progress id="matchProgress" max="19" value="0" aria-label="Match progress"></progress>
+    <div id="badge" class="badge hidden" aria-hidden="true">
+      <img src="../../assets/images/badge_success.png" alt="Badge" width="80">
+      <p>Well done! You've matched all pairs!</p>
+    </div>
+    <audio id="correctSound" src="../../assets/audio/success.mp3" preload="auto"></audio>
+    <audio id="incorrectSound" src="../../assets/audio/fail.mp3" preload="auto"></audio>
+  </section>
+
+  <section id="days-game">
+    <h2 style="font-size:1.1rem;margin:8px 16px;">Match Days of the Week</h2>
+    <div class="match-container">
+      <div class="draggables">
+        <div draggable="true" id="day_Monday" class="draggable" ondragstart="drag(event)">Monday</div>
+        <div draggable="true" id="day_Tuesday" class="draggable" ondragstart="drag(event)">Tuesday</div>
+        <div draggable="true" id="day_Wednesday" class="draggable" ondragstart="drag(event)">Wednesday</div>
+        <div draggable="true" id="day_Thursday" class="draggable" ondragstart="drag(event)">Thursday</div>
+        <div draggable="true" id="day_Friday" class="draggable" ondragstart="drag(event)">Friday</div>
+        <div draggable="true" id="day_Saturday" class="draggable" ondragstart="drag(event)">Saturday</div>
+        <div draggable="true" id="day_Sunday" class="draggable" ondragstart="drag(event)">Sunday</div>
+      </div>
+      <div class="droppables">
+        <div class="droppable" data-match="day_Monday" ondrop="drop(event)" ondragover="allowDrop(event)">Lunes</div>
+        <div class="droppable" data-match="day_Tuesday" ondrop="drop(event)" ondragover="allowDrop(event)">Martes</div>
+        <div class="droppable" data-match="day_Wednesday" ondrop="drop(event)" ondragover="allowDrop(event)">Miércoles</div>
+        <div class="droppable" data-match="day_Thursday" ondrop="drop(event)" ondragover="allowDrop(event)">Jueves</div>
+        <div class="droppable" data-match="day_Friday" ondrop="drop(event)" ondragover="allowDrop(event)">Viernes</div>
+        <div class="droppable" data-match="day_Saturday" ondrop="drop(event)" ondragover="allowDrop(event)">Sábado</div>
+        <div class="droppable" data-match="day_Sunday" ondrop="drop(event)" ondragover="allowDrop(event)">Domingo</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="months-game">
+    <h2 style="font-size:1.1rem;margin:8px 16px;">Match Months of the Year</h2>
+    <div class="match-container">
+      <div class="draggables">
+        <div draggable="true" id="month_January" class="draggable" ondragstart="drag(event)">January</div>
+        <div draggable="true" id="month_February" class="draggable" ondragstart="drag(event)">February</div>
+        <div draggable="true" id="month_March" class="draggable" ondragstart="drag(event)">March</div>
+        <div draggable="true" id="month_April" class="draggable" ondragstart="drag(event)">April</div>
+        <div draggable="true" id="month_May" class="draggable" ondragstart="drag(event)">May</div>
+        <div draggable="true" id="month_June" class="draggable" ondragstart="drag(event)">June</div>
+        <div draggable="true" id="month_July" class="draggable" ondragstart="drag(event)">July</div>
+        <div draggable="true" id="month_August" class="draggable" ondragstart="drag(event)">August</div>
+        <div draggable="true" id="month_September" class="draggable" ondragstart="drag(event)">September</div>
+        <div draggable="true" id="month_October" class="draggable" ondragstart="drag(event)">October</div>
+        <div draggable="true" id="month_November" class="draggable" ondragstart="drag(event)">November</div>
+        <div draggable="true" id="month_December" class="draggable" ondragstart="drag(event)">December</div>
+      </div>
+      <div class="droppables">
+        <div class="droppable" data-match="month_January" ondrop="drop(event)" ondragover="allowDrop(event)">Enero</div>
+        <div class="droppable" data-match="month_February" ondrop="drop(event)" ondragover="allowDrop(event)">Febrero</div>
+        <div class="droppable" data-match="month_March" ondrop="drop(event)" ondragover="allowDrop(event)">Marzo</div>
+        <div class="droppable" data-match="month_April" ondrop="drop(event)" ondragover="allowDrop(event)\">Abril</div>
+        <div class="droppable" data-match="month_May" ondrop="drop(event)" ondragover="allowDrop(event)">Mayo</div>
+        <div class="droppable" data-match="month_June" ondrop="drop(event)" ondragover="allowDrop(event)">Junio</div>
+        <div class="droppable" data-match="month_July" ondrop="drop(event)" ondragover="allowDrop(event)">Julio</div>
+        <div class="droppable" data-match="month_August" ondrop="drop(event)" ondragover="allowDrop(event)">Agosto</div>
+        <div class="droppable" data-match="month_September" ondrop="drop(event)" ondragover="allowDrop(event)">Septiembre</div>
+        <div class="droppable" data-match="month_October" ondrop="drop(event)" ondragover="allowDrop(event)">Octubre</div>
+        <div class="droppable" data-match="month_November" ondrop="drop(event)" ondragover="allowDrop(event)">Noviembre</div>
+        <div class="droppable" data-match="month_December" ondrop="drop(event)" ondragover="allowDrop(event)">Diciembre</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const totalMatches = 19;
+    const progressBar = document.getElementById('matchProgress');
+    const correctSound = document.getElementById('correctSound');
+    const incorrectSound = document.getElementById('incorrectSound');
+    const badge = document.getElementById('badge');
+
+    function allowDrop(e) { e.preventDefault(); }
+    function drag(e) { e.dataTransfer.setData('text/plain', e.target.id); }
+    function drop(e) {
+      e.preventDefault();
+      const id = e.dataTransfer.getData('text/plain');
+      const draggable = document.getElementById(id);
+      const target = e.target;
+      if (!target.classList.contains('droppable') || target.classList.contains('correct')) return;
+      if (target.dataset.match === id) {
+        target.appendChild(draggable);
+        draggable.setAttribute('draggable', 'false');
+        target.classList.add('correct');
+        correctSound.currentTime = 0; correctSound.play();
+        incrementProgress();
+      } else {
+        target.classList.add('incorrect');
+        incorrectSound.currentTime = 0; incorrectSound.play();
+        setTimeout(() => target.classList.remove('incorrect'), 500);
+      }
+    }
+    function incrementProgress() {
+      progressBar.value++;
+      if (progressBar.value === totalMatches) {
+        badge.classList.remove('hidden');
+        confetti({ particleCount: 200, spread: 60 });
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Vocabulary - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    /* Quiz & Game Styles */
+    .quiz-section, .game-section, .listening-section, .lesson-progress { margin: 20px 16px; }
+    .lesson-button { display: inline-block; margin: 8px 4px; padding: 8px 12px; background: #e0f7fa; border:none; border-radius:4px; cursor:pointer; }
+    form p { margin: 8px 0; }
+    #quiz-result { font-weight:bold; margin-top:8px; }
+    .match-container { display:flex; flex-wrap:wrap; justify-content:space-between; margin:16px; }
+    .draggables, .droppables { width:48%; }
+    .draggable, .droppable { padding:6px 8px; margin:4px; background:#f0f0f0; border:1px solid #ccc; font-size:0.9rem; text-align:center; }
+    .droppable { background:#fff; border:2px dashed #ccc; min-height:40px; }
+    .droppable.correct { border-color:green; background:#e6ffe6; }
+    .droppable.incorrect { border-color:red; background:#ffe6e6; }
+    /* Listening */
+    .listening-section audio { display:block; margin:8px 0; }
+    /* Responsive */
+    @media(max-width:600px){ .match-container{flex-direction:column;align-items:center;} .draggables,.droppables{width:100%;} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container"><img src="../../assets/images/logo.jpg" alt="Logo" style="height:40px"></div>
+    <div class="titles"><h1>Weather Vocabulary</h1><p style="margin:0;font-size:0.9rem;">Vocabulary and Practice</p></div>
+    <nav><ul class="navbar">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+      <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+      <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+      <li><a href="../../lessons/videos/index.html">Videos</a></li>
+      <li><a href="../../lessons/activities/index.html">Activities</a></li>
+    </ul></nav>
+  </header>
+
+    <section id="vocabulary">
+        <h2>Weather Vocabulary</h2>
+        <table>
+            <tr>
+                <th>English</th>
+                <th>Spanish</th>
+                <th>Example Sentence</th>
+                <th>Listen</th>
+            </tr>
+            <tr>
+                <td>Sunny</td>
+                <td>soleado</td>
+                <td>It is sunny today.</td>
+                <td><button onclick="playAudio('weather_sunny')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Cloudy</td>
+                <td>nublado</td>
+                <td>The sky is cloudy.</td>
+                <td><button onclick="playAudio('weather_cloudy')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Rainy</td>
+                <td>lluvioso</td>
+                <td>It is rainy this afternoon.</td>
+                <td><button onclick="playAudio('weather_rainy')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Snowy</td>
+                <td>nevado</td>
+                <td>Last winter was very snowy.</td>
+                <td><button onclick="playAudio('weather_snowy')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Windy</td>
+                <td>ventoso</td>
+                <td>It is too windy to go outside.</td>
+                <td><button onclick="playAudio('weather_windy')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Foggy</td>
+                <td>brumoso</td>
+                <td>Drive carefully; it is foggy.</td>
+                <td><button onclick="playAudio('weather_foggy')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Stormy</td>
+                <td>tempestuoso</td>
+                <td>The weather forecast says it will be stormy.</td>
+                <td><button onclick="playAudio('weather_stormy')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Thunder</td>
+                <td>trueno</td>
+                <td>I heard thunder last night.</td>
+                <td><button onclick="playAudio('weather_thunder')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Lightning</td>
+                <td>rayo</td>
+                <td>Lightning can be dangerous.</td>
+                <td><button onclick="playAudio('weather_lightning')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Drizzle</td>
+                <td>llovizna</td>
+                <td>There is a light drizzle outside.</td>
+                <td><button onclick="playAudio('weather_drizzle')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Hail</td>
+                <td>granizo</td>
+                <td>Hail can break windows.</td>
+                <td><button onclick="playAudio('weather_hail')">🔊</button></td>
+            </tr>
+            <tr>
+                <td>Humid</td>
+                <td>húmedo</td>
+                <td>The air is very humid today.</td>
+                <td><button onclick="playAudio('weather_humid')">🔊</button></td>
+            </tr>
+        </table>
+    </section>
+
+    <section id="examples">
+        <h2>Practice with Pictures</h2>
+        <div class="examples">
+            <figure>
+                <img src="../../assets/images/weather/sunny.png" alt="Sunny">
+                <figcaption>Sunny</figcaption>
+            </figure>
+            <figure>
+                <img src="../../assets/images/weather/rainy.png" alt="Rainy">
+                <figcaption>Rainy</figcaption>
+            </figure>
+            <figure>
+                <img src="../../assets/images/weather/snowy.png" alt="Snowy">
+                <figcaption>Snowy</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section id="practice">
+        <h2>Practice Activity</h2>
+        <p>Write a sentence describing today’s weather using two new words you learned.</p>
+    </section>
+
+    <section class="game-section">
+        <h2>Matching Game: Words to Pictures</h2>
+        <div class="match-container">
+          <div class="draggables">
+            <div draggable="true" id="Sunny" class="draggable" ondragstart="drag(event)">Sunny</div>
+            <div draggable="true" id="Rainy" class="draggable" ondragstart="drag(event)">Rainy</div>
+            <div draggable="true" id="Snowy" class="draggable" ondragstart="drag(event)">Snowy</div>
+            <div draggable="true" id="Windy" class="draggable" ondragstart="drag(event)">Windy</div>
+          </div>
+          <div class="droppables">
+            <figure class="droppable" data-match="Sunny" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="../../assets/images/weather/sunny.png" alt="Sunny" width="60"><figcaption>?</figcaption></figure>
+            <figure class="droppable" data-match="Rainy" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="../../assets/images/weather/rainy.png" alt="Rainy" width="60"><figcaption>?</figcaption></figure>
+            <figure class="droppable" data-match="Snowy" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="../../assets/images/weather/snowy.png" alt="Snowy" width="60"><figcaption>?</figcaption></figure>
+            <figure class="droppable" data-match="Windy" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="../../assets/images/weather/windy.png" alt="Windy" width="60"><figcaption>?</figcaption></figure>
+          </div>
+        </div>
+      </section>
+    
+      <section class="listening-section">
+        <h2>Listening Practice</h2>
+        <p>Listen to the audio and select the correct weather word:</p>
+        <audio id="audio1" src="../../assets/audio/weather/weather_rainy.mp3" controls></audio>
+        <form id="listen-form">
+          <label><input type="radio" name="listen1" value="Rainy"> Rainy</label><br>
+          <label><input type="radio" name="listen1" value="Foggy"> Foggy</label><br>
+          <label><input type="radio" name="listen1" value="Sunny"> Sunny</label><br>
+          <button type="submit" class="lesson-button">Check Answer</button>
+          <p id="listen-result"></p>
+        </form>
+      </section>
+    
+      <section class="quiz-section">
+        <h2>Quiz: Test Your Weather Words</h2>
+        <form id="weather-quiz">
+          <p><strong>1. “lluvioso”?</strong><br>
+            <label><input type="radio" name="q1" value="Rainy"> Rainy</label><br>
+            <label><input type="radio" name="q1" value="Sunny"> Sunny</label><br>
+            <label><input type="radio" name="q1" value="Windy"> Windy</label>
+          </p>
+          <p><strong>2. “nublado”?</strong><br>
+            <label><input type="radio" name="q2" value="Cloudy"> Cloudy</label><br>
+            <label><input type="radio" name="q2" value="Stormy"> Stormy</label><br>
+            <label><input type="radio" name="q2" value="Humid"> Humid</label>
+          </p>
+          <p><strong>3. Small droplets: “llovizna”?</strong><br>
+            <label><input type="radio" name="q3" value="Drizzle"> Drizzle</label><br>
+            <label><input type="radio" name="q3" value="Hail"> Hail</label><br>
+            <label><input type="radio" name="q3" value="Snowy"> Snowy</label>
+          </p>
+          <button type="submit" class="lesson-button">Check Answers</button>
+          <p id="quiz-result"></p>
+        </form>
+      </section>
+    
+      <section class="lesson-progress">
+        <a href="../../assets/worksheets/weather_vocabulary_worksheet.pdf" class="lesson-button" download>Download Worksheet</a>
+        <a href="../../assets/certificates/weather_vocabulary_certificate.pdf" class="lesson-button" download>Download Certificate</a>
+      </section>
+    
+      <footer><p>Voces United - Empowering Professionals Through Language</p></footer>
+    
+      <script>
+        function playAudio(name) { new Audio(`../../assets/audio/weather/${name}.mp3`).play(); }
+        // Matching Game
+        function allowDrop(e){e.preventDefault();}
+        function drag(e){e.dataTransfer.setData('text/plain',e.target.id);}
+        function drop(e){e.preventDefault();const id=e.dataTransfer.getData('text/plain');const d=document.getElementById(id);const t=e.target.closest('.droppable');if(!t||t.classList.contains('correct'))return;if(t.dataset.match===id){t.appendChild(d);d.setAttribute('draggable','false');t.classList.add('correct');confetti({particleCount:100,spread:50});}else{t.classList.add('incorrect');setTimeout(()=>t.classList.remove('incorrect'),500);} }
+        // Listening Exercise
+        document.getElementById('listen-form').addEventListener('submit',function(e){e.preventDefault();const ans=this.listen1.value;document.getElementById('listen-result').textContent = ans==='Rainy' ? 'Correct!' : 'Try again.';});
+        // Quiz
+        document.getElementById('weather-quiz').addEventListener('submit',function(e){e.preventDefault();let s=0;if(this.q1.value==='Rainy')s++;if(this.q2.value==='Cloudy')s++;if(this.q3.value==='Drizzle')s++;document.getElementById('quiz-result').textContent=`You got ${s} out of 3.`;});
+      </script>
+    </body>
+    </html>
+    
+    <script>
+        function playAudio(filename) {
+            const audio = new Audio(`../../assets/audio/weather/${filename}.mp3`);
+            audio.play();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Places in the Community - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    section { margin: 20px 16px; }
+    .vocab-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+    .vocab-table th, .vocab-table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    .vocab-table th { background: #f0f0f0; }
+    #map-container { position: relative; max-width: 600px; margin: auto; }
+    #map-img { width: 100%; display: block; }
+    .map-label { position: absolute; background: rgba(255,255,255,0.8); padding: 4px 6px; border-radius: 4px; cursor: pointer; }
+    .dialogue, .direction-form { margin-top: 16px; }
+    .lesson-button { margin-top: 8px; padding: 8px 12px; background: #e0f7fa; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container"><img src="../../assets/images/logo.jpg" alt="Voces United Logo"></div>
+    <div class="titles"><h1>Places in the Community</h1><p>Vocabulary & Practice</p></div>
+    <nav><ul class="navbar">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+      <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+      <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+      <li><a href="../../lessons/videos/index.html">Videos</a></li>
+      <li><a href="../../lessons/activities/index.html">Activities</a></li>
+    </ul></nav>
+  </header>
+
+  <section>
+    <h2>Community Places Vocabulary</h2>
+    <table class="vocab-table">
+      <tr><th>English</th><th>Spanish</th><th>Example</th></tr>
+      <tr><td>Supermarket</td><td>Supermercado</td><td>The supermarket is next to the bank.</td></tr>
+      <tr><td>Post Office</td><td>Oficina de correos</td><td>I need to mail a letter at the post office.</td></tr>
+      <tr><td>Pharmacy</td><td>Farmacia</td><td>She buys medicine at the pharmacy.</td></tr>
+      <tr><td>Library</td><td>Biblioteca</td><td>We study in the library.</td></tr>
+      <tr><td>Bank</td><td>Banco</td><td>He works at the bank.</td></tr>
+      <tr><td>Park</td><td>Parque</td><td>They walk in the park.</td></tr>
+      <tr><td>Hospital</td><td>Hospital</td><td>The hospital is across from the school.</td></tr>
+      <tr><td>School</td><td>Escuela</td><td>My children go to the school.</td></tr>
+      <tr><td>Bus Stop</td><td>Parada de autobús</td><td>The bus stop is near the supermarket.</td></tr>
+      <tr><td>Restaurant</td><td>Restaurante</td><td>We have dinner at the restaurant.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Interactive Map</h2>
+    <p>Click a place to hear its name:</p>
+    <div id="map-container">
+      <img id="map-img" src="../../assets/images/community_map.png" alt="Community Map">
+      <span class="map-label" style="top:20%; left:30%;" onclick="playAudio('map_supermarket')">Supermarket</span>
+      <span class="map-label" style="top:40%; left:60%;" onclick="playAudio('map_post_office')">Post Office</span>
+      <!-- Add more labels with correct positioning -->
+    </div>
+  </section>
+
+  <section class="dialogue">
+    <h2>Role-Play: Asking for Directions</h2>
+    <p><strong>Person A:</strong> Excuse me, where is the pharmacy?<br>
+    <strong>Person B:</strong> It is on Main Street, next to the bank.</p>
+    <p><strong>Person A:</strong> How do I get to the library?<br>
+    <strong>Person B:</strong> Go straight, then turn left at the park.</p>
+  </section>
+
+  <section class="direction-form">
+    <h2>Practice: Give Directions</h2>
+    <p>Use the form below to write directions to a place on the map using <em>to be</em> and prepositions:</p>
+    <form id="direction-form">
+      <label for="place">Place:</label>
+      <select id="place" name="place">
+        <option value="supermarket">Supermarket</option>
+        <option value="library">Library</option>
+        <!-- More options -->
+      </select><br><br>
+      <textarea id="directions" rows="3" cols="40" placeholder="Enter directions..."></textarea><br>
+      <button type="submit" class="lesson-button">Submit</button>
+    </form>
+    <p id="direction-feedback"></p>
+  </section>
+
+  <section class="quiz-section">
+    <h2>Matching Activity: Vocabulary to Images</h2>
+    <div class="match-container">
+      <div class="draggables">
+        <div draggable="true" id="Supermarket" class="draggable" ondragstart="drag(event)">Supermarket</div>
+        <div draggable="true" id="Library" class="draggable" ondragstart="drag(event)">Library</div>
+        <div draggable="true" id="Bank" class="draggable" ondragstart="drag(event)">Bank</div>
+      </div>
+      <div class="droppables">
+        <figure class="droppable" data-match="Supermarket" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <img src="../../assets/images/supermarket.png" alt="Supermarket"><figcaption>?</figcaption>
+        </figure>
+        <figure class="droppable" data-match="Library" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <img src="../../assets/images/library.png" alt="Library"><figcaption>?</figcaption>
+        </figure>
+        <figure class="droppable" data-match="Bank" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <img src="../../assets/images/bank.png" alt="Bank"><figcaption>?</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-progress">
+    <a href="../../assets/worksheets/places_in_community_worksheet.pdf" class="lesson-button" download>Download Worksheet</a>
+  </section>
+
+  <footer>
+    <p>Voces United - Empowering Professionals Through Language</p>
+  </footer>
+
+  <script>
+    function playAudio(name) { new Audio(`../../assets/audio/community/${name}.mp3`).play(); }
+    document.getElementById('direction-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('direction-feedback').textContent = 'Great! Your directions are saved.';
+    });
+    function allowDrop(e) { e.preventDefault(); }
+    function drag(e) { e.dataTransfer.setData('text/plain', e.target.id); }
+    function drop(e) {
+      e.preventDefault();
+      const id = e.dataTransfer.getData('text/plain');
+      const draggable = document.getElementById(id);
+      const target = e.target.closest('.droppable');
+      if (!target || target.classList.contains('correct')) return;
+      if (target.dataset.match === id) {
+        target.appendChild(draggable);
+        draggable.setAttribute('draggable', 'false');
+        target.classList.add('correct');
+      } else {
+        target.classList.add('incorrect');
+        setTimeout(() => target.classList.remove('incorrect'), 500);
+      }
+    }
+  </script>
+</body>
+</html>

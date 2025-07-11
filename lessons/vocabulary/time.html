@@ -6,6 +6,14 @@
     <title>Time, Dates, and Calendar - Voces United</title>
     <link rel="stylesheet" href="../../styles.css">
     <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+    <style>
+        .match-container { display: flex; justify-content: space-between; margin: 20px 0; }
+        .draggables, .droppables { width: 45%; }
+        .draggable { padding: 10px; margin: 5px; background: #f0f0f0; border: 1px solid #ccc; cursor: grab; }
+        .droppable { padding: 10px; margin: 5px; min-height: 40px; background: #fff; border: 2px dashed #ccc; }
+        .droppable.correct { border-color: green; background: #e6ffe6; }
+        .droppable.incorrect { border-color: red; background: #ffe6e6; }
+    </style>
 </head>
 <body>
     <header>
@@ -32,11 +40,12 @@
         <h2>Telling Time</h2>
         <p>Learn how to tell the time in English.</p>
         <ul>
-            <li><strong>What time is it?</strong> - It is 3:00.</li>
-            <li><strong>It's half past 4</strong> = 4:30</li>
-            <li><strong>It's quarter past 2</strong> = 2:15</li>
-            <li><strong>It's quarter to 6</strong> = 5:45</li>
-            <li><strong>AM</strong> = morning / <strong>PM</strong> = afternoon & night</li>
+            <li><strong>What time is it?</strong> <button onclick="playAudio('time_what_time_is_it')">🔊</button></li>
+            <li><strong>It's three o'clock.</strong> <button onclick="playAudio('time_its_three_oclock')">🔊</button></li>
+            <li><strong>It's half past four.</strong> <button onclick="playAudio('time_its_half_past_four')">🔊</button></li>
+            <li><strong>It's quarter past two.</strong> <button onclick="playAudio('time_its_quarter_past_two')">🔊</button></li>
+            <li><strong>It's quarter to six.</strong> <button onclick="playAudio('time_its_quarter_to_six')">🔊</button></li>
+            <li><strong>A.M.</strong> <button onclick="playAudio('time_am')">🔊</button> / <strong>P.M.</strong> <button onclick="playAudio('time_pm')">🔊</button></li>
         </ul>
         <img src="../../assets/images/time/clock-times.png" alt="Clock examples" width="400">
     </section>
@@ -44,13 +53,13 @@
     <section>
         <h2>Days of the Week</h2>
         <ul>
-            <li>Monday - Lunes</li>
-            <li>Tuesday - Martes</li>
-            <li>Wednesday - Miércoles</li>
-            <li>Thursday - Jueves</li>
-            <li>Friday - Viernes</li>
-            <li>Saturday - Sábado</li>
-            <li>Sunday - Domingo</li>
+            <li>Monday - Lunes <button onclick="playAudio('days_monday')">🔊</button></li>
+            <li>Tuesday - Martes <button onclick="playAudio('days_tuesday')">🔊</button></li>
+            <li>Wednesday - Miércoles <button onclick="playAudio('days_wednesday')">🔊</button></li>
+            <li>Thursday - Jueves <button onclick="playAudio('days_thursday')">🔊</button></li>
+            <li>Friday - Viernes <button onclick="playAudio('days_friday')">🔊</button></li>
+            <li>Saturday - Sábado <button onclick="playAudio('days_saturday')">🔊</button></li>
+            <li>Sunday - Domingo <button onclick="playAudio('days_sunday')">🔊</button></li>
         </ul>
         <p><strong>Example:</strong> I go to work on Monday.</p>
     </section>
@@ -58,18 +67,18 @@
     <section>
         <h2>Months of the Year</h2>
         <ul>
-            <li>January - Enero</li>
-            <li>February - Febrero</li>
-            <li>March - Marzo</li>
-            <li>April - Abril</li>
-            <li>May - Mayo</li>
-            <li>June - Junio</li>
-            <li>July - Julio</li>
-            <li>August - Agosto</li>
-            <li>September - Septiembre</li>
-            <li>October - Octubre</li>
-            <li>November - Noviembre</li>
-            <li>December - Diciembre</li>
+            <li>January - Enero <button onclick="playAudio('months_january')">🔊</button></li>
+            <li>February - Febrero <button onclick="playAudio('months_february')">🔊</button></li>
+            <li>March - Marzo <button onclick="playAudio('months_march')">🔊</button></li>
+            <li>April - Abril <button onclick="playAudio('months_april')">🔊</button></li>
+            <li>May - Mayo <button onclick="playAudio('months_may')">🔊</button></li>
+            <li>June - Junio <button onclick="playAudio('months_june')">🔊</button></li>
+            <li>July - Julio <button onclick="playAudio('months_july')">🔊</button></li>
+            <li>August - Agosto <button onclick="playAudio('months_august')">🔊</button></li>
+            <li>September - Septiembre <button onclick="playAudio('months_september')">🔊</button></li>
+            <li>October - Octubre <button onclick="playAudio('months_october')">🔊</button></li>
+            <li>November - Noviembre <button onclick="playAudio('months_november')">🔊</button></li>
+            <li>December - Diciembre <button onclick="playAudio('months_december')">🔊</button></li>
         </ul>
         <p><strong>Example:</strong> My birthday is in July.</p>
     </section>
@@ -92,19 +101,125 @@
             <li>What day is your English class?</li>
             <li>What month is your birthday?</li>
             <li>What is today’s date?</li>
+            <li><strong>Real-World Challenge:</strong> Ask a friend or coworker what the date is in English. Write down their answer and say it out loud.</li>
         </ol>
+    </section>
+
+    <section id="days-game">
+        <h2>Match Days of the Week</h2>
+        <div class="match-container">
+            <div class="draggables">
+                <h3>Drag</h3>
+                <div draggable="true" id="day_Monday" class="draggable" ondragstart="drag(event)">Monday</div>
+                <div draggable="true" id="day_Tuesday" class="draggable" ondragstart="drag(event)">Tuesday</div>
+                <div draggable="true" id="day_Wednesday" class="draggable" ondragstart="drag(event)">Wednesday</div>
+                <div draggable="true" id="day_Thursday" class="draggable" ondragstart="drag(event)">Thursday</div>
+                <div draggable="true" id="day_Friday" class="draggable" ondragstart="drag(event)">Friday</div>
+                <div draggable="true" id="day_Saturday" class="draggable" ondragstart="drag(event)">Saturday</div>
+                <div draggable="true" id="day_Sunday" class="draggable" ondragstart="drag(event)">Sunday</div>
+            </div>
+            <div class="droppables">
+                <h3>Drop on</h3>
+                <div class="droppable" data-match="day_Monday" ondrop="drop(event)" ondragover="allowDrop(event)">Lunes</div>
+                <div class="droppable" data-match="day_Tuesday" ondrop="drop(event)" ondragover="allowDrop(event)">Martes</div>
+                <div class="droppable" data-match="day_Wednesday" ondrop="drop(event)" ondragover="allowDrop(event)">Miércoles</div>
+                <div class="droppable" data-match="day_Thursday" ondrop="drop(event)" ondragover="allowDrop(event)">Jueves</div>
+                <div class="droppable" data-match="day_Friday" ondrop="drop(event)" ondragover="allowDrop(event)">Viernes</div>
+                <div class="droppable" data-match="day_Saturday" ondrop="drop(event)" ondragover="allowDrop(event)">Sábado</div>
+                <div class="droppable" data-match="day_Sunday" ondrop="drop(event)" ondragover="allowDrop(event)">Domingo</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="months-game">
+        <h2>Match Months of the Year</h2>
+        <div class="match-container">
+            <div class="draggables">
+                <h3>Drag</h3>
+                <div draggable="true" id="month_January" class="draggable" ondragstart="drag(event)">January</div>
+                <div draggable="true" id="month_February" class="draggable" ondragstart="drag(event)">February</div>
+                <div draggable="true" id="month_March" class="draggable" ondragstart="drag(event)">March</div>
+                <div draggable="true" id="month_April" class="draggable" ondragstart="drag(event)">April</div>
+                <div draggable="true" id="month_May" class="draggable" ondragstart="drag(event)">May</div>
+                <div draggable="true" id="month_June" class="draggable" ondragstart="drag(event)">June</div>
+                <div draggable="true" id="month_July" class="draggable" ondragstart="drag(event)">July</div>
+                <div draggable="true" id="month_August" class="draggable" ondragstart="drag(event)">August</div>
+                <div draggable="true" id="month_September" class="draggable" ondragstart="drag(event)">September</div>
+                <div draggable="true" id="month_October" class="draggable" ondragstart="drag(event)">October</div>
+                <div draggable="true" id="month_November" class="draggable" ondragstart="drag(event)">November</div>
+                <div draggable="true" id="month_December" class="draggable" ondragstart="drag(event)">December</div>
+            </div>
+            <div class="droppables">
+                <h3>Drop on</h3>
+                <div class="droppable" data-match="month_January" ondrop="drop(event)" ondragover="allowDrop(event)">Enero</div>
+                <div class="droppable" data-match="month_February" ondrop="drop(event)" ondragover="allowDrop(event)">Febrero</div>
+                <div class="droppable" data-match="month_March" ondrop="drop(event)" ondragover="allowDrop(event)">Marzo</div>
+                <div class="droppable" data-match="month_April" ondrop="drop(event)" ondragover="allowDrop(event)">Abril</div>
+                <div class="droppable" data-match="month_May" ondrop="drop(event)" ondragover="allowDrop(event)">Mayo</div>
+                <div class="droppable" data-match="month_June" ondrop="drop(event)" ondragover="allowDrop(event)">Junio</div>
+                <div class="droppable" data-match="month_July" ondrop="drop(event)" ondragover="allowDrop(event)">Julio</div>
+                <div class="droppable" data-match="month_August" ondrop="drop(event)" ondragover="allowDrop(event)">Agosto</div>
+                <div class="droppable" data-match="month_September" ondrop="drop(event)" ondragover="allowDrop(event)">Septiembre</div>
+                <div class="droppable" data-match="month_October" ondrop="drop(event)" ondragover="allowDrop(event)">Octubre</div>
+                <div class="droppable" data-match="month_November" ondrop="drop(event)" ondragover="allowDrop(event)">Noviembre</div>
+                <div class="droppable" data-match="month_December" ondrop="drop(event)" ondragover="allowDrop(event)">Diciembre</div>
+            </div>
+        </div>
+        <button onclick="checkAllGames()" class="lesson-button">Check All Answers</button>
     </section>
 
     <section id="lesson-progress">
         <h2>Check Your Progress</h2>
         <p id="lesson-status" style="font-weight: bold"></p>
         <button class="lesson-button" onclick="markLessonComplete('time-dates-calendar')">Mark As Complete</button>
+        <br><br>
+        <a href="../../assets/worksheets/time-dates-worksheet.pdf" class="lesson-button" download>Download Worksheet (PDF)</a>
+        <br><br>
+        <a href="../../assets/certificates/time-certificate.pdf" class="lesson-button" download>Download Certificate of Completion</a>
     </section>
 
     <footer>
         <p>Voces United - Empowering Professionals Through Language</p>
     </footer>
 
+    <script>
+        function playAudio(filename) {
+            const audio = new Audio(`../../assets/audio/time/${filename}.mp3`);
+            audio.play();
+        }
+    </script>
+
+    <script>
+        function allowDrop(e) { e.preventDefault(); }
+        function drag(e) { e.dataTransfer.setData('text', e.target.id); }
+        function drop(e) {
+            e.preventDefault();
+            const id = e.dataTransfer.getData('text');
+            const target = e.target;
+            if (target.classList.contains('droppable')) {
+                if (target.dataset.match === id) {
+                    target.appendChild(document.getElementById(id));
+                    target.classList.add('correct');
+                    target.classList.remove('incorrect');
+                } else {
+                    target.classList.add('incorrect');
+                    setTimeout(() => target.classList.remove('incorrect'), 1000);
+                }
+            }
+        }
+        function checkAllGames() {
+            const droppables = document.querySelectorAll('.droppable');
+            let allCorrect = true;
+            droppables.forEach(d => {
+                if (!d.classList.contains('correct')) allCorrect = false;
+            });
+            if (allCorrect) {
+                alert('Great job! All matches are correct!');
+            } else {
+                alert('Some matches are still incorrect. Keep trying!');
+            }
+        }
+    </script>
     <script src="../../script.js"></script>
 </body>
 </html>
