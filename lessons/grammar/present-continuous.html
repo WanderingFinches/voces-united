@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Present Continuous - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png" />
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 0; }
+    section { max-width: 800px; margin: 20px auto; padding: 0 16px; }
+    table { width:100%; border-collapse: collapse; margin-bottom: 16px; }
+    th, td { border:1px solid #ccc; padding:8px; text-align:center; }
+    th { background:#4CAF50; color:#fff; }
+    .audio-btn { background:none; border:none; font-size:1rem; cursor:pointer; }
+    .exercise-section input { margin-bottom: 10px; }
+    .exercise-section ol { padding-left: 20px; }
+    .lesson-button { margin-top:8px; padding:8px 12px; background:#4CAF50; color:#fff; border:none; border-radius:4px; cursor:pointer; }
+    .quiz-section {
+      max-width: 800px;
+      margin: 20px auto;
+      font-size: 0.9rem;
+    }
+    .quiz-section .question { margin-bottom: 12px; }
+    .quiz-section label { display: block; margin-left: 16px; }
+    #quiz-result, #fill-feedback, #listen-feedback { font-weight:bold; margin-top:8px; }
+    .dialogue div { margin-bottom:12px; }
+    .grammar-section img.diagram { max-width: 100%; margin-bottom: 20px; border: 2px solid #4CAF50; border-radius: 8px; }
+  </style>
+</head>
+<body id="present-continuous">
+  <header>
+    <div class="logo-container"><img src="../../assets/images/logo.jpg" alt="Voces United Logo" /></div>
+    <div class="titles"><h1>Present Continuous</h1><p>Grammar Lesson: Learn how and when to use the Present Continuous tense</p></div>
+    <nav><ul class="navbar">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+      <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+      <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+      <li><a href="../../lessons/videos/index.html">Videos</a></li>
+      <li><a href="../../lessons/activities/index.html">Activities</a></li>
+    </ul></nav>
+  </header>
+
+  <section class="grammar-section">
+    <h2>Form &amp; Conjugation</h2>
+    <table>
+      <tr><th>Subject</th><th>Conjugation</th><th>Listen</th></tr>
+      <tr><td>I</td><td>am + verb-ing</td><td><button class="audio-btn" onclick="playAudio('pc_i_am_eating')">🔊</button></td></tr>
+      <tr><td>You</td><td>are + verb-ing</td><td><button class="audio-btn" onclick="playAudio('pc_you_are_working')">🔊</button></td></tr>
+      <tr><td>He/She/It</td><td>is + verb-ing</td><td><button class="audio-btn" onclick="playAudio('pc_he_is_reading')">🔊</button></td></tr>
+      <tr><td>We</td><td>are + verb-ing</td><td><button class="audio-btn" onclick="playAudio('pc_we_are_playing')">🔊</button></td></tr>
+      <tr><td>They</td><td>are + verb-ing</td><td><button class="audio-btn" onclick="playAudio('pc_they_are_listening')">🔊</button></td></tr>
+    </table>
+
+    <h2>When to Use It</h2>
+    <ul>
+      <li>Actions happening right now: "She is studying."</li>
+      <li>Temporary situations: "I am living in Madrid for a month."</li>
+      <li>Planned future events: "We are meeting tomorrow."</li>
+    </ul>
+
+    <h2>Common -ing Verbs</h2>
+    <img src="../../assets/images/lessons/present-continuous-uses.png" alt="Present Continuous Uses" class="diagram" />
+    <table>
+      <tr><th>English</th><th>Spanish</th><th>Example</th><th>Listen</th></tr>
+      <tr><td>eat → eating</td><td>comer → comiendo</td><td>He is eating lunch.</td><td><button class="audio-btn" onclick="playAudio('pc_eating')">🔊</button></td></tr>
+      <tr><td>read → reading</td><td>leer → leyendo</td><td>They are reading books.</td><td><button class="audio-btn" onclick="playAudio('pc_reading')">🔊</button></td></tr>
+      <tr><td>study → studying</td><td>estudiar → estudiando</td><td>She is studying English.</td><td><button class="audio-btn" onclick="playAudio('pc_studying')">🔊</button></td></tr>
+      <tr><td>work → working</td><td>trabajar → trabajando</td><td>We are working on a project.</td><td><button class="audio-btn" onclick="playAudio('pc_working')">🔊</button></td></tr>
+      <tr><td>play → playing</td><td>jugar → jugando</td><td>The children are playing soccer.</td><td><button class="audio-btn" onclick="playAudio('pc_playing')">🔊</button></td></tr>
+      <tr><td>listen → listening</td><td>escuchar → escuchando</td><td>I am listening to music.</td><td><button class="audio-btn" onclick="playAudio('pc_listening')">🔊</button></td></tr>
+      <tr><td>watch → watching</td><td>mirar → mirando</td><td>He is watching TV.</td><td><button class="audio-btn" onclick="playAudio('pc_watching')">🔊</button></td></tr>
+      <tr><td>talk → talking</td><td>hablar → hablando</td><td>They are talking on the phone.</td><td><button class="audio-btn" onclick="playAudio('pc_talking')">🔊</button></td></tr>
+      <tr><td>walk → walking</td><td>caminar → caminando</td><td>She is walking home.</td><td><button class="audio-btn" onclick="playAudio('pc_walking')">🔊</button></td></tr>
+      <tr><td>drive → driving</td><td>conducir → conduciendo</td><td>We are driving to work.</td><td><button class="audio-btn" onclick="playAudio('pc_driving')">🔊</button></td></tr>
+    </table>
+  </section>
+
+  <section class="exercise-section">
+    <h2>Fill In the Blanks</h2>
+    <ol>
+      <li>She ___ (read) a book. <input type="text" id="fb1"></li>
+      <li>We ___ (study) English. <input type="text" id="fb2"></li>
+      <li>I ___ (eat) dinner. <input type="text" id="fb3"></li>
+      <li>They ___ (play) soccer. <input type="text" id="fb4"></li>
+      <li>He ___ (listen) to music. <input type="text" id="fb5"></li>
+    </ol>
+    <button class="lesson-button" onclick="checkFB()">Check Answers</button>
+    <p id="fill-feedback"></p>
+  </section>
+
+  <section class="listening-section">
+    <h2>Listening Practice</h2>
+    <audio src="../../assets/audio/pc/example1.mp3" controls></audio>
+    <form id="listen2">
+      <label><input type="radio" name="pc" value="walking"> walking</label>
+      <label><input type="radio" name="pc" value="playing"> playing</label>
+      <label><input type="radio" name="pc" value="working"> working</label>
+      <button type="submit" class="lesson-button">Submit</button>
+      <p id="listen-feedback"></p>
+    </form>
+  </section>
+
+  <section class="dialogue">
+    <h2>Role-Plays</h2>
+    <div><strong>A:</strong> What are you doing right now?<br><strong>B:</strong> I’m cooking dinner.</div>
+    <div><strong>A:</strong> Why are they running?<br><strong>B:</strong> They’re training for a marathon.</div>
+    <div><strong>A:</strong> Are you reading that article?<br><strong>B:</strong> Yes, I’m reading it now.</div>
+  </section>
+
+  <section class="quiz-section">
+    <h2>Quiz: Choose the Correct Form</h2>
+    <form id="pc-quiz">
+      <div class="question">1. I ___ (drive) to work.
+        <label><input type="radio" name="q1" value="am driving"> am driving</label>
+        <label><input type="radio" name="q1" value="is driving"> is driving</label>
+        <label><input type="radio" name="q1" value="are driving"> are driving</label>
+      </div>
+      <div class="question">2. She ___ (study) English.
+        <label><input type="radio" name="q2" value="is studying"> is studying</label>
+        <label><input type="radio" name="q2" value="are studying"> are studying</label>
+        <label><input type="radio" name="q2" value="am studying"> am studying</label>
+      </div>
+      <div class="question">3. They ___ (play) soccer.
+        <label><input type="radio" name="q3" value="are playing"> are playing</label>
+        <label><input type="radio" name="q3" value="is playing"> is playing</label>
+        <label><input type="radio" name="q3" value="am playing"> am playing</label>
+      </div>
+      <div class="question">4. You ___ (listen) to music.
+        <label><input type="radio" name="q4" value="are listening"> are listening</label>
+        <label><input type="radio" name="q4" value="am listening"> am listening</label>
+        <label><input type="radio" name="q4" value="is listening"> is listening</label>
+      </div>
+      <div class="question">5. We ___ (eat) lunch.
+        <label><input type="radio" name="q5" value="are eating"> are eating</label>
+        <label><input type="radio" name="q5" value="is eating"> is eating</label>
+        <label><input type="radio" name="q5" value="am eating"> am eating</label>
+      </div>
+      <button type="submit" class="lesson-button">Check Answers</button>
+      <p id="quiz-result"></p>
+    </form>
+  </section>
+
+  <section class="lesson-progress">
+    <a href="../../assets/worksheets/present_continuous_worksheet.pdf" class="lesson-button" download>Download Worksheet</a>
+  </section>
+
+  <footer>
+    <p>Voces United © 2025 – Empowering through language</p>
+  </footer>
+
+  <script>
+    function playAudio(name){ new Audio(`../../assets/audio/grammar/${name}.mp3`).play(); }
+    function checkFB(){
+      const answers=["is reading","are studying","am eating","are playing","is listening"];
+      let correct=0;
+      answers.forEach((ans,i)=>{ if(document.getElementById(`fb${i+1}`).value.trim().toLowerCase()===ans) correct++; });
+      document.getElementById('fill-feedback').textContent=`${correct} / 5 correct.`;
+    }
+    document.getElementById('listen2').addEventListener('submit', function(e){
+      e.preventDefault();
+      const ans=this.pc.value;
+      document.getElementById('listen-feedback').textContent = ans==='walking'? 'Correct!' : 'Try again.';
+    });
+    document.getElementById('pc-quiz').addEventListener('submit', function(e){
+      e.preventDefault();
+      const ans={q1:'am driving',q2:'is studying',q3:'are playing',q4:'are listening',q5:'are eating'};
+      let score=0;
+      Object.keys(ans).forEach(q=>{ if(this[q].value===ans[q]) score++; });
+      document.getElementById('quiz-result').textContent=`${score} / 5 correct.`;
+    });
+  </script>
+</body>
+</html>
