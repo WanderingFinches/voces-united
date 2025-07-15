@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopping & Money - Voces United</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" href="../../assets/images/favicon.png" type="image/png" />
+  <style>
+    section { max-width: 800px; margin: 20px auto; padding: 0 16px; }
+    th { background: #4CAF50; color: #fff; }
+    table { width:100%; border-collapse: collapse; margin-bottom: 16px; }
+    th, td { border:1px solid #ccc; padding:8px; text-align:left; }
+    .lesson-button { margin-top:8px; padding:8px 12px; background:#4CAF50; color:#fff; border:none; border-radius:4px; cursor:pointer; }
+    .draggable { padding:8px; background:#f0f0f0; margin:4px; cursor:move; }
+    .droppable { border:2px dashed #ccc; padding:16px; min-height:60px; margin:4px; }
+    .quiz-card { border:1px solid #4CAF50; border-radius:8px; padding:16px; margin:8px 0; }
+    .quiz-card p { margin-bottom:8px; font-weight:bold; }
+    .quiz-card button { margin:4px 0; padding:8px; width:100%; border:none; border-radius:4px; background:#e0e0e0; cursor:pointer; }
+    .quiz-card button.correct { background:lightgreen; }
+    .quiz-card button.incorrect { background:#ffcccb; }
+    #quiz-result { font-weight:bold; text-align:center; margin-top:12px; }
+  </style>
+</head>
+<body id="shopping-money">
+  <header>
+    <div class="logo-container"><img src="../../assets/images/logo.jpg" alt="Voces United Logo" /></div>
+    <div class="titles"><h1>Shopping & Money</h1><p>Vocabulary & Practice</p></div>
+    <nav><ul class="navbar">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../lessons/vocabulary/index.html">Vocabulary</a></li>
+      <li><a href="../../lessons/pronunciation/index.html">Pronunciation</a></li>
+      <li><a href="../../lessons/grammar/index.html">Grammar</a></li>
+      <li><a href="../../lessons/videos/index.html">Videos</a></li>
+      <li><a href="../../lessons/activities/index.html">Activities</a></li>
+    </ul></nav>
+  </header>
+
+  <section>
+    <h2>Key Vocabulary</h2>
+    <table>
+      <tr><th>English</th><th>Spanish</th><th>Example</th><th>Listen</th></tr>
+      <tr><td>Price</td><td>Precio</td><td>What is the price?</td><td><button onclick="playAudio('price')">🔊</button></td></tr>
+      <tr><td>Cost</td><td>Costo</td><td>The cost is high.</td><td><button onclick="playAudio('cost')">🔊</button></td></tr>
+      <tr><td>Discount</td><td>Descuento</td><td>We have a 20% discount.</td><td><button onclick="playAudio('discount')">🔊</button></td></tr>
+      <tr><td>Sale</td><td>Oferta</td><td>The item is on sale.</td><td><button onclick="playAudio('sale')">🔊</button></td></tr>
+      <tr><td>Bill</td><td>Cuenta</td><td>Can I have the bill?</td><td><button onclick="playAudio('bill')">🔊</button></td></tr>
+      <tr><td>Cash</td><td>Efectivo</td><td>I pay with cash.</td><td><button onclick="playAudio('cash')">🔊</button></td></tr>
+      <tr><td>Card</td><td>Tarjeta</td><td>Do you accept card?</td><td><button onclick="playAudio('card')">🔊</button></td></tr>
+      <tr><td>Receipt</td><td>Recibo</td><td>Keep your receipt.</td><td><button onclick="playAudio('receipt')">🔊</button></td></tr>
+      <tr><td>Change</td><td>Cambio</td><td>I need change.</td><td><button onclick="playAudio('change')">🔊</button></td></tr>
+      <tr><td>Expensive</td><td>Caro</td><td>It is too expensive.</td><td><button onclick="playAudio('expensive')">🔊</button></td></tr>
+    </table>
+  </section>
+
+  <section class="exercise-section">
+    <h2>Fill in the Price</h2>
+    <p>The shirt ___ $30.</p>
+    <input type="text" id="price-input" placeholder="enter price" />
+    <button class="lesson-button" onclick="checkPrice()">Check</button>
+    <p id="price-feedback"></p>
+  </section>
+
+  <section class="listening-section">
+    <h2>Listening Practice</h2>
+    <audio src="../../assets/audio/shopping/receipt.mp3" controls></audio>
+    <p>What is the total amount?</p>
+    <input type="text" id="listen-input" placeholder="$" />
+    <button class="lesson-button" onclick="checkListen()">Submit</button>
+    <p id="listen-feedback"></p>
+  </section>
+
+  <section>
+    <h2>Match Items to Prices</h2>
+    <div style="display:flex;">
+      <div>
+        <div draggable="true" class="draggable" id="apple" ondragstart="drag(event)">Apple</div>
+        <div draggable="true" class="draggable" id="bread" ondragstart="drag(event)">Bread</div>
+        <div draggable="true" class="draggable" id="milk" ondragstart="drag(event)">Milk</div>
+      </div>
+      <div style="margin-left:20px;">
+        <div class="droppable" data-match="apple" ondrop="drop(event)" ondragover="allowDrop(event)">$1.00</div>
+        <div class="droppable" data-match="bread" ondrop="drop(event)" ondragover="allowDrop(event)">$2.50</div>
+        <div class="droppable" data-match="milk" ondrop="drop(event)" ondragover="allowDrop(event)">$3.00</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quiz" class="grammar-section">
+    <h2>Mini-Quiz</h2>
+    <div id="quiz-container">
+      <div class="quiz-card">
+        <p>1. How do you ask for the price?</p>
+        <button onclick="selectAnswer(this,'incorrect')">Where is the price?</button>
+        <button onclick="selectAnswer(this,'correct')">What is the price?</button>
+        <button onclick="selectAnswer(this,'incorrect')">How much cost?</button>
+      </div>
+      <div class="quiz-card">
+        <p>2. You pay with _____.</p>
+        <button onclick="selectAnswer(this,'correct')">cash</button>
+        <button onclick="selectAnswer(this,'incorrect')">car</button>
+        <button onclick="selectAnswer(this,'incorrect')">cardboard</button>
+      </div>
+      <div class="quiz-card">
+        <p>3. A 20% _____ means you pay less.</p>
+        <button onclick="selectAnswer(this,'correct')">discount</button>
+        <button onclick="selectAnswer(this,'incorrect')">receipt</button>
+        <button onclick="selectAnswer(this,'incorrect')">bill</button>
+      </div>
+    </div>
+    <button class="lesson-button" id="reset-quiz">Reset Quiz</button>
+    <p id="quiz-result"></p>
+  </section>
+
+  <section class="lesson-progress">
+    <a href="../../assets/worksheets/shopping_money_worksheet.pdf" class="lesson-button" download>Download Worksheet</a>
+  </section>
+
+  <footer>
+    <p>Voces United © 2025 – Empowering through language</p>
+  </footer>
+
+  <script>
+    function playAudio(name) { new Audio(`../../assets/audio/shopping/${name}.mp3`).play(); }
+    function checkPrice() {
+      const val = document.getElementById('price-input').value.trim();
+      const feedback = document.getElementById('price-feedback');
+      feedback.textContent = val === '$30' || val === '30' ? 'Correct!' : 'Try again.';
+    }
+    function checkListen() {
+      const ans = document.getElementById('listen-input').value.trim();
+      document.getElementById('listen-feedback').textContent = ans === '$12.50' ? 'Well done!' : 'Not quite.';
+    }
+    function allowDrop(e) { e.preventDefault(); }
+    function drag(e) { e.dataTransfer.setData('text', e.target.id); }
+    function drop(e) {
+      e.preventDefault();
+      const id = e.dataTransfer.getData('text');
+      const draggable = document.getElementById(id);
+      const target = e.target;
+      if (target.dataset.match === id) {
+        target.appendChild(draggable);
+        draggable.draggable = false;
+        target.style.borderColor = 'green';
+      } else {
+        target.style.borderColor = 'red';
+        setTimeout(() => target.style.borderColor = '', 500);
+      }
+    }
+    function selectAnswer(btn, result) {
+      const card = btn.closest('.quiz-card');
+      Array.from(card.querySelectorAll('button')).forEach(b => b.disabled = true);
+      btn.classList.add(result);
+      if (result === 'correct') {
+        let current = parseInt(document.getElementById('quiz-result').textContent) || 0;
+        document.getElementById('quiz-result').textContent = current + 1;
+      }
+    }
+    document.getElementById('reset-quiz').addEventListener('click', () => {
+      document.getElementById('quiz-result').textContent = '';
+      document.querySelectorAll('.quiz-card button').forEach(btn => {
+        btn.disabled = false; btn.classList.remove('correct','incorrect');
+      });
+    });
+  </script>
+</body>
+</html>
